@@ -1,0 +1,393 @@
+# KnowledgeOS Artifact Registry
+# Purpose: Master index for reusable KnowledgeOS / GosseOS / Operator Fischer artifacts.
+# Schema reference: registry/artifact_schema.yaml
+# Owner principle: Human remains owner. AI remains tool.
+
+registry_id: KOS-REGISTRY-0001
+title: "KnowledgeOS Artifact Registry"
+system: "KnowledgeOS / GosseOS / Operator Fischer"
+version: "v1.0"
+status: "active"
+owner: "Operator Fischer"
+created_at: "2026-05-19"
+updated_at: "2026-05-19"
+
+registry_rules:
+  - "Every artifact must have a unique artifact_id."
+  - "Every artifact must have a clear status: canonical, active, draft, experimental, deprecated, or archived."
+  - "Canonical artifacts are default sources of truth."
+  - "Deprecated artifacts must not be used as active output sources unless explicitly requested for archive context."
+  - "All reusable artifacts require source_location, core_patterns, linked_artifacts, drift_risk, verification_status, governance_notes, and reuse_rules."
+  - "Human owner remains accountable. AI systems may assist, structure, compare, and verify but do not own artifacts."
+
+artifacts:
+  - artifact_id: "KOS-0001"
+    title: "KnowledgeOS Artifact Registry Schema"
+    system: "KnowledgeOS / GosseOS / Operator Fischer"
+    artifact_type: "Governance Rule"
+    status: "canonical"
+    version: "v1.0"
+    owner: "Operator Fischer"
+    created_at: "2026-05-19"
+    updated_at: "2026-05-19"
+    source_location: "GitHub: registry/artifact_schema.yaml"
+    summary: "Canonical metadata schema for all KnowledgeOS, GosseOS, and Operator Fischer knowledge artifacts. Defines fields, allowed values, drift checks, and release policy."
+    core_patterns:
+      - "Artifact Registry"
+      - "Metadata Governance"
+      - "Drift Control"
+      - "Versioned Knowledge Management"
+    linked_artifacts:
+      - "KOS-0002"
+      - "KOS-0003"
+    risk_level: "low"
+    drift_risk: "low"
+    verification_status: "verified"
+    governance_notes: "Primary schema for registry entries. Changes require version increment and review."
+    reuse_rules:
+      use_when:
+        - "When creating or validating any KnowledgeOS artifact entry."
+        - "When enforcing standard metadata, status, and drift-control fields."
+      do_not_use_when:
+        - "Do not use as a substitute for the actual artifact content. It is only the schema."
+
+  - artifact_id: "KOS-0002"
+    title: "KnowledgeOS Artifact Registry"
+    system: "KnowledgeOS / GosseOS / Operator Fischer"
+    artifact_type: "Architecture"
+    status: "active"
+    version: "v1.0"
+    owner: "Operator Fischer"
+    created_at: "2026-05-19"
+    updated_at: "2026-05-19"
+    source_location: "GitHub: registry/artifacts.yaml"
+    summary: "Master index for reusable knowledge artifacts. Provides traceability, status control, semantic linking, and drift governance across the Operator Fischer knowledge architecture."
+    core_patterns:
+      - "Master Artifact Index"
+      - "Semantic Linking"
+      - "Status Governance"
+      - "Reusable Knowledge Base"
+    linked_artifacts:
+      - "KOS-0001"
+      - "KOS-0003"
+      - "KOS-0004"
+      - "KOS-0005"
+    risk_level: "medium"
+    drift_risk: "medium"
+    verification_status: "checked"
+    governance_notes: "This file is active and should become canonical once the first complete registry review is done."
+    reuse_rules:
+      use_when:
+        - "When locating, connecting, or validating registered knowledge artifacts."
+        - "When checking whether an artifact is canonical, active, deprecated, or archived."
+      do_not_use_when:
+        - "Do not treat incomplete entries as fully verified."
+
+  - artifact_id: "KOS-0003"
+    title: "GosseOS Operator Governance Matrix v1"
+    system: "GosseOS / KnowledgeOS / Operator Fischer"
+    artifact_type: "Framework"
+    status: "canonical"
+    version: "v1.0"
+    owner: "Operator Fischer"
+    created_at: "2026-03-11"
+    updated_at: "2026-05-19"
+    source_location: "Memory / Framework Baseline"
+    summary: "Governance kernel defining adjustable moderation and governance intensity, role authority, request structure, action classification, risk scoring, escalation rules, audit logging, and operating modes."
+    core_patterns:
+      - "Governance Matrix"
+      - "Risk Scoring"
+      - "Escalation Logic"
+      - "Human Ownership"
+      - "Operating Modes"
+    linked_artifacts:
+      - "KOS-0001"
+      - "KOS-0002"
+      - "KOS-0007"
+    risk_level: "medium"
+    drift_risk: "medium"
+    verification_status: "checked"
+    governance_notes: "Canonical governance baseline. Requires precise version tracking when converted into full file artifact."
+    reuse_rules:
+      use_when:
+        - "When building governance, moderation, audit, risk, or release controls."
+        - "When defining safe operating modes for GosseOS or KnowledgeOS."
+      do_not_use_when:
+        - "Do not use to bypass human ownership or compliance responsibilities."
+
+  - artifact_id: "KOS-0004"
+    title: "Multi-Model Cooperation Protocol"
+    system: "Operator Fischer / GosseOS / KnowledgeOS"
+    artifact_type: "Protocol"
+    status: "active"
+    version: "v1.0"
+    owner: "Operator Fischer"
+    created_at: "2026-05-18"
+    updated_at: "2026-05-19"
+    source_location: "Chat / Memory / Operator Handbuch Baseline"
+    summary: "Reusable operating protocol for orchestrating multiple AI systems such as ChatGPT, Codex, Claude, and local models into a shared artifact-oriented workflow."
+    core_patterns:
+      - "Model-Agnostic Orchestration"
+      - "Role-Based AI Cooperation"
+      - "Structured Handoff"
+      - "Verification Layer"
+      - "Artifact Harmonization"
+    linked_artifacts:
+      - "KOS-0002"
+      - "KOS-0005"
+      - "KOS-0006"
+    risk_level: "medium"
+    drift_risk: "medium"
+    verification_status: "checked"
+    governance_notes: "Active protocol. Needs explicit boundary: models assist; human operator owns decisions and execution authority."
+    reuse_rules:
+      use_when:
+        - "When coordinating ChatGPT, Codex, Claude, GitHub, or local tooling for a shared task."
+        - "When creating handoff prompts or operational task chains."
+      do_not_use_when:
+        - "Do not use to grant unsupervised full authority to external systems."
+
+  - artifact_id: "KOS-0005"
+    title: "Prompterator Master Spec v1.0"
+    system: "Prompterator / KnowledgeOS / GosseOS"
+    artifact_type: "Architecture"
+    status: "active"
+    version: "v1.0"
+    owner: "Operator Fischer"
+    created_at: "2026-05-18"
+    updated_at: "2026-05-19"
+    source_location: "Memory / GitHub Candidate / Product Spec"
+    summary: "Product and operating specification for Prompterator, including UI logic, agent string, PDF output style system, loading system, terminology governance, export logic, quality checks, and model handoff structure."
+    core_patterns:
+      - "Prompt Generator"
+      - "Single-Line Raw Input"
+      - "Mode Routing"
+      - "PDF Export"
+      - "Public/Private Terminology Governance"
+    linked_artifacts:
+      - "KOS-0002"
+      - "KOS-0004"
+      - "KOS-0006"
+    risk_level: "medium"
+    drift_risk: "medium"
+    verification_status: "checked"
+    governance_notes: "Active product spec. Must distinguish public product terminology from internal GosseOS / Operator Fischer architecture."
+    reuse_rules:
+      use_when:
+        - "When building or extending prompterator.de or the Prompterator app logic."
+        - "When generating Codex or Claude implementation handoffs for the product."
+      do_not_use_when:
+        - "Do not expose private Operator Fischer architecture unnecessarily in public product copy."
+
+  - artifact_id: "KOS-0006"
+    title: "Operator Fischer Harness"
+    system: "Operator Fischer / GosseOS / KnowledgeOS"
+    artifact_type: "Architecture"
+    status: "active"
+    version: "v2.x"
+    owner: "Operator Fischer"
+    created_at: "2026-05-14"
+    updated_at: "2026-05-19"
+    source_location: "Memory / Operator Architecture Baseline"
+    summary: "Model-agnostic operator harness defining mode engine, router, prompt layer, verification, artifact engine, and reusable execution structure."
+    core_patterns:
+      - "Mode Engine"
+      - "Runtime Router"
+      - "Prompt Layer"
+      - "Verification"
+      - "Artifact Engine"
+    linked_artifacts:
+      - "KOS-0002"
+      - "KOS-0003"
+      - "KOS-0004"
+      - "KOS-0007"
+    risk_level: "medium"
+    drift_risk: "high"
+    verification_status: "checked"
+    governance_notes: "Important architecture artifact with high drift risk because several versions and names exist. Requires consolidation into one canonical spec."
+    reuse_rules:
+      use_when:
+        - "When defining the full Operator Fischer AI operating architecture."
+        - "When routing tasks into modes, artifacts, and verification layers."
+      do_not_use_when:
+        - "Do not mix old deprecated naming into active public outputs."
+
+  - artifact_id: "KOS-0007"
+    title: "Corporate Output Masterprompt v1.1"
+    system: "Operator Fischer / KnowledgeOS"
+    artifact_type: "Prompt"
+    status: "canonical"
+    version: "v1.1"
+    owner: "Operator Fischer"
+    created_at: "2026-03-20"
+    updated_at: "2026-05-19"
+    source_location: "Memory / Corporate Professional Mode"
+    summary: "Professional business-output mode for applications, SOPs, training material, KPI summaries, management communication, and market-oriented corporate documents."
+    core_patterns:
+      - "Corporate Professional Mode"
+      - "Management Consultant Voice"
+      - "Process Excellence"
+      - "Supply Chain Operations"
+      - "No Buzzword Policy"
+    linked_artifacts:
+      - "KOS-0002"
+      - "KOS-0003"
+      - "KOS-0008"
+    risk_level: "low"
+    drift_risk: "low"
+    verification_status: "checked"
+    governance_notes: "Canonical style and output mode for professional documents. Must not invent false credentials such as SAP hands-on experience."
+    reuse_rules:
+      use_when:
+        - "When producing business, application, logistics, operations, supply-chain, pharma-adjacent, or management documents."
+      do_not_use_when:
+        - "Do not use for child-story, fantasy, meme, or informal creative outputs."
+
+  - artifact_id: "KOS-0008"
+    title: "Operator Fischer Professional Positioning Constraints"
+    system: "Operator Fischer / KnowledgeOS"
+    artifact_type: "Governance Rule"
+    status: "canonical"
+    version: "v1.0"
+    owner: "Operator Fischer"
+    created_at: "2026-02-25"
+    updated_at: "2026-05-19"
+    source_location: "Memory / Career Positioning Baseline"
+    summary: "Professional positioning rules for Operator Fischer, including logistics experience, process and supply-chain orientation, macOS-only preference, and explicit restriction against claiming SAP hands-on experience."
+    core_patterns:
+      - "Career Positioning"
+      - "Truthful Capability Boundary"
+      - "Supply Chain Logistics"
+      - "SAP No Hands-On Claim"
+      - "macOS Standard"
+    linked_artifacts:
+      - "KOS-0007"
+      - "KOS-0009"
+    risk_level: "medium"
+    drift_risk: "medium"
+    verification_status: "checked"
+    governance_notes: "Critical for application dossiers and professional documents. Prevents false claims and keeps positioning credible."
+    reuse_rules:
+      use_when:
+        - "When generating CVs, applications, portfolios, LinkedIn posts, recruiter dossiers, or professional bios."
+      do_not_use_when:
+        - "Do not claim direct SAP hands-on experience. Use process understanding and system-interface readiness instead."
+
+  - artifact_id: "KOS-0009"
+    title: "Supply Chain AI Operating System Masterprompt"
+    system: "FF-OOC / GosseOS / KnowledgeOS"
+    artifact_type: "Prompt"
+    status: "active"
+    version: "v1.0"
+    owner: "Operator Fischer"
+    created_at: "2026-03-02"
+    updated_at: "2026-05-19"
+    source_location: "Memory / FF-OOC Masterprompt"
+    summary: "Supply-chain-focused AI operating prompt with multi-agent routing, verifier, archivist, modelsmith, render, and warehouse-vision roles."
+    core_patterns:
+      - "Supply Chain AI"
+      - "Agent Routing"
+      - "Verifier Role"
+      - "Warehouse Vision"
+      - "Artifact Generation"
+    linked_artifacts:
+      - "KOS-0003"
+      - "KOS-0004"
+      - "KOS-0006"
+      - "KOS-0008"
+    risk_level: "medium"
+    drift_risk: "medium"
+    verification_status: "checked"
+    governance_notes: "Active system mode. Must remain bounded by governance and truthful output constraints."
+    reuse_rules:
+      use_when:
+        - "When transforming supply-chain, logistics, warehouse, Wareneingang, cold-chain, or operations inputs into structured artifacts."
+      do_not_use_when:
+        - "Do not use for unrelated creative or consumer-only tasks."
+
+  - artifact_id: "KOS-0010"
+    title: "AgentOS Legacy Naming"
+    system: "Operator Fischer Archive"
+    artifact_type: "Research Note"
+    status: "deprecated"
+    version: "legacy"
+    owner: "Operator Fischer"
+    created_at: "2026-05-19"
+    updated_at: "2026-05-19"
+    source_location: "Memory / Deprecated Term Registry"
+    summary: "Legacy naming entry for older AgentOS terminology. The term is retained for archive traceability but must not be used as the active main system name."
+    core_patterns:
+      - "Deprecated Term"
+      - "Terminology Governance"
+      - "Archive Traceability"
+    linked_artifacts:
+      - "KOS-0002"
+      - "KOS-0006"
+    risk_level: "low"
+    drift_risk: "high"
+    verification_status: "verified"
+    governance_notes: "Deprecated. Use GosseOS, KnowledgeOS, Operator Fischer, Protocol, Workflow, or Agent-Layer depending on context."
+    reuse_rules:
+      use_when:
+        - "Only when discussing historical development or archived system terminology."
+      do_not_use_when:
+        - "Do not use as active primary system name."
+
+index_views:
+  by_status:
+    canonical:
+      - "KOS-0001"
+      - "KOS-0003"
+      - "KOS-0007"
+      - "KOS-0008"
+    active:
+      - "KOS-0002"
+      - "KOS-0004"
+      - "KOS-0005"
+      - "KOS-0006"
+      - "KOS-0009"
+    deprecated:
+      - "KOS-0010"
+  by_system:
+    KnowledgeOS:
+      - "KOS-0001"
+      - "KOS-0002"
+      - "KOS-0003"
+      - "KOS-0004"
+      - "KOS-0005"
+      - "KOS-0006"
+      - "KOS-0007"
+      - "KOS-0008"
+      - "KOS-0009"
+    GosseOS:
+      - "KOS-0003"
+      - "KOS-0004"
+      - "KOS-0005"
+      - "KOS-0006"
+      - "KOS-0009"
+    Archive:
+      - "KOS-0010"
+
+open_governance_tasks:
+  - task_id: "GOV-0001"
+    title: "Consolidate Operator Fischer Harness versions into one canonical artifact file."
+    linked_artifacts:
+      - "KOS-0006"
+    priority: "high"
+  - task_id: "GOV-0002"
+    title: "Convert Prompterator Master Spec from memory baseline into explicit repository artifact."
+    linked_artifacts:
+      - "KOS-0005"
+    priority: "high"
+  - task_id: "GOV-0003"
+    title: "Create deprecated_terms.yaml to prevent old terms from re-entering active outputs."
+    linked_artifacts:
+      - "KOS-0010"
+    priority: "medium"
+  - task_id: "GOV-0004"
+    title: "Add verification checklist and drift report template."
+    linked_artifacts:
+      - "KOS-0001"
+      - "KOS-0002"
+      - "KOS-0003"
+    priority: "medium"
