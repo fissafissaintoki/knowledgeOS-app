@@ -1,0 +1,463 @@
+# KnowledgeOS Source Registry
+# Purpose: Track source origins, traceability, reliability, freshness, and reuse permissions for KnowledgeOS / GosseOS / Operator Fischer artifacts.
+# Counterparts: registry/artifacts.yaml, registry/artifact_schema.yaml, governance/verification_checklist.md
+# Owner principle: Human remains owner. AI remains tool.
+
+source_registry_id: KOS-SOURCE-REGISTRY-0001
+title: "KnowledgeOS Source Registry"
+system: "KnowledgeOS / GosseOS / Operator Fischer"
+version: "v1.0"
+status: "active"
+owner: "Operator Fischer"
+created_at: "2026-05-19"
+updated_at: "2026-05-19"
+source_location: "GitHub: registry/source_registry.yaml"
+linked_artifacts:
+  - "KOS-0001"
+  - "KOS-0002"
+  - "KOS-0003"
+  - "KOS-0004"
+  - "KOS-0005"
+  - "KOS-0006"
+  - "KOS-0007"
+  - "KOS-0008"
+  - "KOS-0009"
+  - "KOS-0010"
+
+purpose:
+  - "Make every reusable artifact source traceable."
+  - "Prevent unverified notes, chats, files, memory fragments, or external references from being treated as source of truth."
+  - "Support source validation before artifact release."
+  - "Classify source reliability, freshness, and permitted reuse."
+  - "Connect source records to artifact registry entries and drift reports."
+
+source_rules:
+  - "Every reusable artifact should reference at least one source_id or explicit source_location."
+  - "A source may support an artifact, but it does not become canonical unless the artifact passes verification and owner approval."
+  - "Memory-based sources require a clear baseline name or extraction context."
+  - "Chat-based sources require date/context summary where possible."
+  - "GitHub-based sources should include repository, path, and commit where possible."
+  - "External factual claims require source refresh if the claim is time-sensitive or high-impact."
+  - "Unknown, missing, or unverifiable sources must block canonical release."
+  - "AI-generated content is treated as draft input until verified."
+
+source_types:
+  - "GitHub Repository"
+  - "GitHub File"
+  - "Git Commit"
+  - "Chat Input"
+  - "Uploaded File"
+  - "Memory Baseline"
+  - "PDF"
+  - "Local File"
+  - "External Web Source"
+  - "Manual Note"
+  - "Generated Artifact"
+  - "Tool Output"
+
+traceability_levels:
+  T0:
+    label: "missing"
+    meaning: "No usable source reference exists."
+    release_effect: "Blocks verified and canonical status."
+  T1:
+    label: "partial"
+    meaning: "Source type or context is known, but exact path, file, commit, or baseline is incomplete."
+    release_effect: "May allow checked status, not canonical."
+  T2:
+    label: "traceable"
+    meaning: "Source is clearly identifiable by path, file, repo, date, memory baseline, or source context."
+    release_effect: "May allow verified status."
+  T3:
+    label: "pinned"
+    meaning: "Source is fixed to path plus commit, version, file hash, document version, or explicit dated baseline."
+    release_effect: "Required for high-impact canonical release where possible."
+
+reliability_levels:
+  R0:
+    label: "unknown"
+    meaning: "Reliability cannot be assessed."
+  R1:
+    label: "raw"
+    meaning: "Raw user input, notes, or generated draft; useful but not verified."
+  R2:
+    label: "working"
+    meaning: "Structured source used operationally but not independently verified."
+  R3:
+    label: "verified_internal"
+    meaning: "Reviewed internal source with traceable context."
+  R4:
+    label: "authoritative_internal"
+    meaning: "Canonical internal source approved by owner."
+  R5:
+    label: "authoritative_external"
+    meaning: "Trusted external primary source or official documentation."
+
+freshness_policy:
+  stable_architecture:
+    refresh_required: "on material change"
+    examples:
+      - "Artifact schema"
+      - "Release policy"
+      - "Canonical terms"
+  active_product_or_code:
+    refresh_required: "before implementation or release"
+    examples:
+      - "Prompterator code"
+      - "Repository files"
+      - "Runtime configuration"
+  external_current_information:
+    refresh_required: "before use"
+    examples:
+      - "Prices"
+      - "Laws"
+      - "Software versions"
+      - "Company facts"
+      - "Public API documentation"
+  memory_baseline:
+    refresh_required: "when conflicting memory, newer artifact, or drift signal appears"
+
+reuse_classes:
+  internal:
+    meaning: "For private Operator Fischer / KnowledgeOS / GosseOS architecture use."
+  public_safe:
+    meaning: "Can be adapted for external/public output after terminology and credential review."
+  restricted:
+    meaning: "Requires explicit owner review before reuse."
+  archive_only:
+    meaning: "Historical reference only; not an active source for new outputs."
+
+sources:
+  - source_id: "SRC-0001"
+    title: "KnowledgeOS App Repository"
+    source_type: "GitHub Repository"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app"
+    owner: "Operator Fischer"
+    traceability_level: "T2"
+    reliability_level: "R3"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "active_product_or_code"
+    supports_artifacts:
+      - "KOS-0001"
+      - "KOS-0002"
+    summary: "Primary repository for KnowledgeOS artifact registry and governance foundation."
+    validation_notes: "Repository exists and has been populated with registry and governance files."
+
+  - source_id: "SRC-0002"
+    title: "KnowledgeOS Artifact Registry Schema File"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/registry/artifact_schema.yaml"
+    commit_reference: "4db2ea0ff5460fdc073d351d8dfb08ef027ee4a8"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R4"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0001"
+    summary: "Canonical schema defining required metadata fields, allowed values, drift checks, and release-policy hooks for artifacts."
+    validation_notes: "Pinned by commit reference from initial file creation."
+
+  - source_id: "SRC-0003"
+    title: "KnowledgeOS Artifact Registry File"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/registry/artifacts.yaml"
+    commit_reference: "40f659a2d9372237877c0285d5c8185caaa9c352"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R3"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0002"
+    summary: "Master index of KnowledgeOS artifacts with status, type, version, drift risk, verification state, and reuse rules."
+    validation_notes: "Active registry file. Should be updated when new registered artifacts are added."
+
+  - source_id: "SRC-0004"
+    title: "KnowledgeOS Deprecated Terms Registry File"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/registry/deprecated_terms.yaml"
+    commit_reference: "165865dab459140018526da3c5badde629caf67d"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R4"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0010"
+    summary: "Terminology governance file for deprecated or blocked terms such as AgentOS, AI decides, autonomous full control, Memory dump, and Prompt only."
+    validation_notes: "Controls terminology drift and archive-only language."
+
+  - source_id: "SRC-0005"
+    title: "KnowledgeOS Verification Checklist File"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/governance/verification_checklist.md"
+    commit_reference: "26b700f1c2acbb32a7a0f384a9ba298747f6f7d0"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R4"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0003"
+    summary: "Checklist for schema, source, terminology, drift, risk, content quality, reuse, and release readiness."
+    validation_notes: "Used as standard review gate for KnowledgeOS artifacts."
+
+  - source_id: "SRC-0006"
+    title: "KnowledgeOS Drift Report Template File"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/governance/drift_report_template.md"
+    commit_reference: "9149178705aba0c41374624827f4da3cfab51d43"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R4"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0003"
+    summary: "Template for identifying terminology, version, pattern, source, governance, and output drift."
+    validation_notes: "Used for formal drift reports and release recommendations."
+
+  - source_id: "SRC-0007"
+    title: "KnowledgeOS Release Policy File"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/governance/release_policy.md"
+    commit_reference: "29a9dc39849dc9dc07ba9600711a4e74c6b2a3cf"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R4"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0003"
+    summary: "Release policy defining status transitions, release gates, owner approval, versioning, public-safe policy, and conflict resolution."
+    validation_notes: "Canonical release requires owner approval."
+
+  - source_id: "SRC-0008"
+    title: "KnowledgeOS Repository README"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/README.md"
+    commit_reference: "e3fbbe9815cf2e2a3d2db206d4e7d85c8326b940"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R3"
+    reuse_class: "public_safe"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0002"
+    summary: "Repository entry point describing purpose, structure, core files, status model, drift control, release flow, and expansion path."
+    validation_notes: "Public-readable overview; internal terminology should remain controlled."
+
+  - source_id: "SRC-0009"
+    title: "KnowledgeOS Canonical Terms Registry File"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/registry/canonical_terms.yaml"
+    commit_reference: "7a32f7d089806d507594123a46cc16f514668eca"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R4"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0002"
+      - "KOS-0010"
+    summary: "Registry of approved active terms for KnowledgeOS, GosseOS, Operator Fischer, Artifact, Protocol, Workflow, Skill, Architecture, Mode, Runtime Router, and related system language."
+    validation_notes: "Counterpart to deprecated_terms.yaml."
+
+  - source_id: "SRC-0010"
+    title: "KnowledgeOS Pattern Map File"
+    source_type: "GitHub File"
+    location: "GitHub: fissafissaintoki/knowledgeOS-app/registry/pattern_map.yaml"
+    commit_reference: "65e0fd6a880a605efee2ee20e5208230756ee3de"
+    owner: "Operator Fischer"
+    traceability_level: "T3"
+    reliability_level: "R3"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "KOS-0002"
+      - "KOS-0004"
+      - "KOS-0006"
+    summary: "Map of reusable semantic and operational patterns, including System Executive Orchestrator Workflow, Universal Converter, Multi-Model Cooperation, and Drift Report and Release Gate."
+    validation_notes: "Active pattern map. Should be updated when new patterns are promoted."
+
+  - source_id: "SRC-0011"
+    title: "GosseOS Operator Governance Matrix Memory Baseline"
+    source_type: "Memory Baseline"
+    location: "Memory: GosseOS Operator Governance Matrix v1"
+    owner: "Operator Fischer"
+    traceability_level: "T1"
+    reliability_level: "R2"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "memory_baseline"
+    supports_artifacts:
+      - "KOS-0003"
+    summary: "Memory baseline for governance intensity controls, role authority, action classification, risk scoring, escalation, audit logging, and operating modes."
+    validation_notes: "Should be converted into explicit repository artifact for stronger traceability."
+
+  - source_id: "SRC-0012"
+    title: "Multi-Model Cooperation Protocol Chat / Memory Baseline"
+    source_type: "Memory Baseline"
+    location: "Memory / Chat: Multi-Model Cooperation Protocol v1"
+    owner: "Operator Fischer"
+    traceability_level: "T1"
+    reliability_level: "R2"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "memory_baseline"
+    supports_artifacts:
+      - "KOS-0004"
+    summary: "Baseline for coordinating ChatGPT, Codex, Claude, and other systems through role-based artifact-oriented cooperation."
+    validation_notes: "Needs explicit repository artifact for canonical release."
+
+  - source_id: "SRC-0013"
+    title: "Prompterator Master Spec Memory Baseline"
+    source_type: "Memory Baseline"
+    location: "Memory: Prompterator Master Spec v1.0"
+    owner: "Operator Fischer"
+    traceability_level: "T1"
+    reliability_level: "R2"
+    reuse_class: "restricted"
+    status: "active"
+    freshness: "memory_baseline"
+    supports_artifacts:
+      - "KOS-0005"
+    summary: "Product and operating specification baseline for Prompterator UI logic, agent string, PDF output style, loading system, export logic, quality checks, and handoff structure."
+    validation_notes: "Public/private terminology review required before public use."
+
+  - source_id: "SRC-0014"
+    title: "Operator Fischer Harness Memory Baseline"
+    source_type: "Memory Baseline"
+    location: "Memory: Operator Fischer Harness v1/v2 architecture baseline"
+    owner: "Operator Fischer"
+    traceability_level: "T1"
+    reliability_level: "R2"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "memory_baseline"
+    supports_artifacts:
+      - "KOS-0006"
+    summary: "Model-agnostic operator harness baseline covering mode engine, router, prompt layer, verification, artifact engine, and reusable execution structure."
+    validation_notes: "High drift risk because multiple versions/names exist. Requires consolidation into one explicit canonical file."
+
+  - source_id: "SRC-0015"
+    title: "Corporate Output Masterprompt Memory Baseline"
+    source_type: "Memory Baseline"
+    location: "Memory: Corporate Output Masterprompt v1.1 / Corporate Professional Mode"
+    owner: "Operator Fischer"
+    traceability_level: "T1"
+    reliability_level: "R3"
+    reuse_class: "public_safe"
+    status: "active"
+    freshness: "memory_baseline"
+    supports_artifacts:
+      - "KOS-0007"
+      - "KOS-0008"
+    summary: "Professional business-output mode for applications, SOPs, training documents, KPI summaries, management documents, and logistics/corporate positioning."
+    validation_notes: "Must be used together with professional positioning truth boundary."
+
+  - source_id: "SRC-0016"
+    title: "Operator Fischer Professional Positioning Memory Baseline"
+    source_type: "Memory Baseline"
+    location: "Memory: Professional positioning constraints"
+    owner: "Operator Fischer"
+    traceability_level: "T1"
+    reliability_level: "R3"
+    reuse_class: "restricted"
+    status: "active"
+    freshness: "memory_baseline"
+    supports_artifacts:
+      - "KOS-0008"
+    summary: "Professional positioning constraints including logistics experience, process and supply-chain orientation, macOS preference, and no SAP hands-on claim."
+    validation_notes: "Career-critical source. Must not be overextended beyond verified user-provided facts."
+
+  - source_id: "SRC-0017"
+    title: "Supply Chain AI Operating System Masterprompt Memory Baseline"
+    source_type: "Memory Baseline"
+    location: "Memory: FF-OOC Supply Chain AI Operating System Masterprompt"
+    owner: "Operator Fischer"
+    traceability_level: "T1"
+    reliability_level: "R2"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "memory_baseline"
+    supports_artifacts:
+      - "KOS-0009"
+    summary: "Supply-chain-focused AI operating prompt with multi-agent routing, verifier, archivist, modelsmith, render, and warehouse-vision roles."
+    validation_notes: "Needs explicit artifact file for stronger traceability."
+
+  - source_id: "SRC-0018"
+    title: "System Executive Orchestrator Workflow User Input"
+    source_type: "Chat Input"
+    location: "Chat / uploaded composer text: System Executive Orchestrator workflow use case, 2026-05-19"
+    owner: "Operator Fischer"
+    traceability_level: "T2"
+    reliability_level: "R1"
+    reuse_class: "internal"
+    status: "active"
+    freshness: "stable_architecture"
+    supports_artifacts:
+      - "PAT-0006"
+    summary: "User-provided workflow use case describing a System Executive Orchestrator with process steps, monitoring, escalation, error handling, reporting, governance, quality checks, and KPI assumptions."
+    validation_notes: "Treat as source material for pattern extraction, not as verified external fact. KPI values remain assumptions until measured."
+
+source_validation_template:
+  source_id: "SRC-XXXX"
+  title: "Source title"
+  source_type: "GitHub File | Memory Baseline | Chat Input | Uploaded File | External Web Source | Tool Output"
+  location: "Exact source path, file, chat context, memory baseline, URL, or commit"
+  owner: "Operator Fischer / external owner / unknown"
+  traceability_level: "T0 | T1 | T2 | T3"
+  reliability_level: "R0 | R1 | R2 | R3 | R4 | R5"
+  reuse_class: "internal | public_safe | restricted | archive_only"
+  status: "active | deprecated | archived | conflict"
+  freshness: "stable_architecture | active_product_or_code | external_current_information | memory_baseline"
+  supports_artifacts:
+    - "KOS-XXXX"
+  summary: "Short description of what the source supports."
+  validation_notes: "Known limits, conflicts, or required refresh actions."
+
+blocker_conditions:
+  - "No source_id or source_location exists for a reusable artifact."
+  - "Source cannot be traced beyond vague memory or unknown chat context."
+  - "External factual claim is time-sensitive but not refreshed."
+  - "AI-generated draft is treated as verified source without review."
+  - "A source contradicts a canonical artifact and no conflict note exists."
+  - "A career-critical or public-facing source is used without truth-boundary review."
+  - "A high-risk automation or governance artifact lacks owner approval."
+
+release_integration:
+  checked_status_requires:
+    - "At least T1 traceability"
+    - "Reliability level not R0"
+    - "Source limitations documented"
+  verified_status_requires:
+    - "At least T2 traceability"
+    - "Reliability level R2 or higher"
+    - "Source validation completed"
+  canonical_status_requires:
+    - "At least T2 traceability, preferably T3"
+    - "Reliability level R3 or higher for internal sources"
+    - "Owner approval"
+    - "No unresolved source conflict"
+  conflict_status_required_when:
+    - "Traceability is T0"
+    - "Reliability is R0 and artifact is proposed for reuse"
+    - "Source contradiction is unresolved"
+
+change_log:
+  - date: "2026-05-19"
+    version: "v1.0"
+    change: "Initial KnowledgeOS source registry created for source traceability, reliability, freshness, and reuse control."
+    owner: "Operator Fischer"
