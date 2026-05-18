@@ -1,0 +1,246 @@
+# KnowledgeOS Deprecated Terms Registry
+# Purpose: Prevent terminology drift by marking legacy terms, outdated system names,
+# unclear aliases, and replaced concepts as deprecated or archive-only.
+# Owner principle: Human remains owner. AI remains tool.
+
+registry_id: KOS-DEPRECATED-TERMS-0001
+title: "KnowledgeOS Deprecated Terms Registry"
+system: "KnowledgeOS / GosseOS / Operator Fischer"
+version: "v1.0"
+status: "canonical"
+owner: "Operator Fischer"
+created_at: "2026-05-19"
+updated_at: "2026-05-19"
+source_location: "GitHub: registry/deprecated_terms.yaml"
+linked_artifacts:
+  - "KOS-0001"
+  - "KOS-0002"
+  - "KOS-0010"
+
+purpose:
+  - "Prevent old terminology from re-entering active outputs."
+  - "Keep historical terms traceable without treating them as current system names."
+  - "Protect GosseOS / KnowledgeOS / Operator Fischer architecture from semantic drift."
+  - "Force explicit replacement terms for deprecated concepts."
+
+rules:
+  - "Deprecated terms must not be used as active primary system names."
+  - "Deprecated terms may only be used in archive, migration, comparison, or historical context."
+  - "If a deprecated term appears in raw input, map it to the approved replacement before generating an output."
+  - "If no replacement exists, mark the term as unresolved and require governance review."
+  - "Public-facing outputs must avoid internal or deprecated terminology unless explicitly required."
+  - "Do not silently revive deprecated terms by using them as headings, product names, or architecture names."
+
+replacement_policy:
+  default_action: "replace_or_flag"
+  active_output_behavior:
+    - "Replace deprecated term with approved replacement where context is clear."
+    - "Add governance note if replacement changes meaning."
+    - "Flag as conflict if deprecated and active meanings collide."
+  archive_output_behavior:
+    - "Deprecated terms may be shown if clearly labelled as legacy, archive, or historical."
+  unresolved_behavior:
+    - "Set verification_status to conflict until reviewed."
+
+terms:
+  - term: "AgentOS"
+    status: "deprecated"
+    severity: "high"
+    deprecated_since: "2026-05-19"
+    approved_replacements:
+      - "GosseOS"
+      - "KnowledgeOS"
+      - "Agent-Layer"
+      - "Multi-Agent Orchestration"
+      - "Protocol Layer"
+    reason: "Legacy system name. It should no longer be used as the active main system name."
+    allowed_contexts:
+      - "Historical explanation"
+      - "Archive reference"
+      - "Migration note"
+      - "Comparison with current architecture"
+    forbidden_contexts:
+      - "Primary framework name"
+      - "Public product name"
+      - "Canonical architecture label"
+      - "Current operating system name"
+    rewrite_examples:
+      - before: "AgentOS steuert die gesamte Architektur."
+        after: "GosseOS steuert die Ausführung; KnowledgeOS verwaltet Artefakte und Memory."
+      - before: "AgentOS Prompt Library"
+        after: "KnowledgeOS Prompt Library"
+    linked_artifacts:
+      - "KOS-0010"
+
+  - term: "AI decides"
+    status: "deprecated"
+    severity: "high"
+    deprecated_since: "2026-05-19"
+    approved_replacements:
+      - "AI supports decision preparation"
+      - "Human owner decides"
+      - "AI provides analysis; human remains accountable"
+    reason: "Violates the governance principle that the human remains owner and AI remains tool."
+    allowed_contexts:
+      - "Warning example"
+      - "Governance anti-pattern"
+    forbidden_contexts:
+      - "Decision ownership"
+      - "Approval authority"
+      - "Compliance responsibility"
+    rewrite_examples:
+      - before: "Die KI entscheidet, welche Version freigegeben wird."
+        after: "Die KI prüft und empfiehlt; der menschliche Owner gibt die Version frei."
+    linked_artifacts:
+      - "KOS-0003"
+
+  - term: "autonomous full control"
+    status: "deprecated"
+    severity: "high"
+    deprecated_since: "2026-05-19"
+    approved_replacements:
+      - "supervised execution"
+      - "human-approved automation"
+      - "bounded tool execution"
+    reason: "Too broad and unsafe as an operating principle. Automation must remain bounded, auditable, and owner-controlled."
+    allowed_contexts:
+      - "Risk discussion"
+      - "Anti-pattern documentation"
+    forbidden_contexts:
+      - "System permission model"
+      - "Production execution policy"
+      - "External tool delegation"
+    rewrite_examples:
+      - before: "Claude bekommt autonomous full control."
+        after: "Claude arbeitet innerhalb einer überwachten, begrenzten Ausführungslogik mit menschlicher Freigabe."
+    linked_artifacts:
+      - "KOS-0003"
+      - "KOS-0004"
+
+  - term: "Memory dump"
+    status: "deprecated"
+    severity: "medium"
+    deprecated_since: "2026-05-19"
+    approved_replacements:
+      - "curated memory extract"
+      - "KnowledgeOS artifact entry"
+      - "structured memory update"
+    reason: "Unstructured memory storage creates drift, clutter, and low-quality retrieval."
+    allowed_contexts:
+      - "Discussion of bad memory practice"
+      - "Archive reference"
+    forbidden_contexts:
+      - "KnowledgeOS storage policy"
+      - "Artifact creation process"
+    rewrite_examples:
+      - before: "Speichere den ganzen Chat als Memory dump."
+        after: "Erstelle einen kuratierten KnowledgeOS-Extrakt mit Status, Quelle, Version und Wiederverwendungsregel."
+    linked_artifacts:
+      - "KOS-0001"
+      - "KOS-0002"
+
+  - term: "Prompt only"
+    status: "deprecated"
+    severity: "medium"
+    deprecated_since: "2026-05-19"
+    approved_replacements:
+      - "Protocol"
+      - "Skill"
+      - "Workflow"
+      - "Architecture"
+      - "Prompt, if it is only an instruction artifact"
+    reason: "Operator Fischer architecture distinguishes Prompt, Protocol, Skill, Workflow, and Architecture. Treating all structures as prompts causes classification drift."
+    allowed_contexts:
+      - "Simple instruction text"
+      - "Legacy prompt library"
+    forbidden_contexts:
+      - "Complex operating workflows"
+      - "Multi-model orchestration"
+      - "System architecture definitions"
+    rewrite_examples:
+      - before: "Das ist nur ein Prompt."
+        after: "Das ist ein Protocol mit Prompt-, Routing-, Verification- und Handoff-Anteilen."
+    linked_artifacts:
+      - "KOS-0004"
+      - "KOS-0006"
+
+  - term: "random notes"
+    status: "deprecated"
+    severity: "medium"
+    deprecated_since: "2026-05-19"
+    approved_replacements:
+      - "Research Note"
+      - "Artifact Entry"
+      - "Structured Extract"
+      - "Decision Log"
+    reason: "Unclassified notes reduce search quality and increase semantic drift."
+    allowed_contexts:
+      - "Raw capture stage"
+      - "Inbox before classification"
+    forbidden_contexts:
+      - "Registry entries"
+      - "Canonical documentation"
+    rewrite_examples:
+      - before: "random notes für später"
+        after: "Research Note mit Artifact-ID, Quelle, Status und Verknüpfung."
+    linked_artifacts:
+      - "KOS-0001"
+      - "KOS-0002"
+
+  - term: "unverified source of truth"
+    status: "deprecated"
+    severity: "high"
+    deprecated_since: "2026-05-19"
+    approved_replacements:
+      - "unchecked artifact"
+      - "checked artifact"
+      - "verified canonical artifact"
+    reason: "A source cannot be treated as truth without verification status and traceable source location."
+    allowed_contexts:
+      - "Risk example"
+      - "Verification warning"
+    forbidden_contexts:
+      - "Canonical output basis"
+      - "Decision dossier"
+      - "Governance release"
+    rewrite_examples:
+      - before: "Diese Notiz ist die Source of Truth."
+        after: "Diese Notiz ist ein unchecked artifact und benötigt Verifikation vor Wiederverwendung."
+    linked_artifacts:
+      - "KOS-0001"
+      - "KOS-0002"
+
+term_detection:
+  matching_policy: "case_insensitive_semantic_match"
+  actions:
+    on_exact_match: "replace_or_flag"
+    on_near_match: "flag_for_review"
+    on_conflicting_match: "set_verification_status_conflict"
+  output_note_required_when:
+    - "A deprecated term is replaced in a canonical artifact."
+    - "A deprecated term appears in a title or system name."
+    - "A deprecated term changes the meaning of an artifact."
+
+quality_gate:
+  checks:
+    - "Scan title, summary, core_patterns, governance_notes, and reuse_rules for deprecated terms."
+    - "Scan public-facing copy for internal or deprecated terminology."
+    - "Verify that each deprecated term has an approved replacement."
+    - "Verify that archive-only use is labelled clearly."
+    - "Block canonical release if unresolved deprecated terms remain."
+
+release_policy:
+  canonical_artifact_requirement:
+    - "No high-severity deprecated term may appear as active terminology."
+    - "Medium-severity deprecated terms require either replacement or explicit governance note."
+    - "Archive references must include context label: legacy, archived, deprecated, or historical."
+  failure_action:
+    - "Set artifact verification_status to conflict."
+    - "Add governance_notes explaining the terminology conflict."
+    - "Link to this deprecated_terms registry."
+
+change_log:
+  - date: "2026-05-19"
+    version: "v1.0"
+    change: "Initial deprecated terms registry created for KnowledgeOS terminology governance."
+    owner: "Operator Fischer"
