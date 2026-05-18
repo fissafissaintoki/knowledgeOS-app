@@ -1,0 +1,177 @@
+# KnowledgeOS Artifact Registry Schema
+# Artifact: KOS-0001
+# Purpose: Canonical metadata template for all KnowledgeOS / GosseOS / Operator Fischer knowledge artifacts.
+# Owner principle: Human remains owner. AI remains tool.
+
+schema_id: KOS-SCHEMA-0001
+title: "KnowledgeOS Artifact Registry Schema"
+system: "KnowledgeOS / GosseOS / Operator Fischer"
+version: "v1.0"
+status: "canonical"
+owner: "Operator Fischer"
+created_at: "2026-05-19"
+updated_at: "2026-05-19"
+
+allowed_values:
+  artifact_type:
+    - Prompt
+    - SOP
+    - Framework
+    - Dossier
+    - PDF
+    - Code
+    - Research Note
+    - Checklist
+    - Workflow
+    - Protocol
+    - Architecture
+    - Governance Rule
+  status:
+    - canonical
+    - active
+    - draft
+    - experimental
+    - deprecated
+    - archived
+  risk_level:
+    - low
+    - medium
+    - high
+  drift_risk:
+    - low
+    - medium
+    - high
+  verification_status:
+    - unchecked
+    - checked
+    - verified
+    - conflict
+  source_location:
+    - GitHub
+    - Datei
+    - Chat
+    - PDF
+    - Memory
+    - Notiz
+    - External Source
+    - Local System
+
+required_fields:
+  - artifact_id
+  - title
+  - system
+  - artifact_type
+  - status
+  - version
+  - owner
+  - created_at
+  - updated_at
+  - source_location
+  - summary
+  - core_patterns
+  - linked_artifacts
+  - risk_level
+  - drift_risk
+  - verification_status
+  - governance_notes
+  - reuse_rules
+
+artifact_template:
+  artifact_id: "KOS-0001"
+  title: "Name des Artefakts"
+  system: "KnowledgeOS / GosseOS / Operator Fischer"
+  artifact_type: "Prompt | SOP | Framework | Dossier | PDF | Code | Research Note | Checklist | Workflow | Protocol | Architecture | Governance Rule"
+  status: "canonical | active | draft | experimental | deprecated | archived"
+  version: "v1.0"
+  owner: "Operator Fischer"
+  created_at: "YYYY-MM-DD"
+  updated_at: "YYYY-MM-DD"
+  source_location: "GitHub | Datei | Chat | PDF | Memory | Notiz | External Source | Local System"
+  summary: "Kurze Inhaltsbeschreibung"
+  core_patterns:
+    - "Muster 1"
+    - "Muster 2"
+  linked_artifacts:
+    - "KOS-0002"
+    - "KOS-0003"
+  risk_level: "low | medium | high"
+  drift_risk: "low | medium | high"
+  verification_status: "unchecked | checked | verified | conflict"
+  governance_notes: "Freigabehinweise, Konflikte, Einschränkungen"
+  reuse_rules:
+    use_when:
+      - "Wann verwenden?"
+    do_not_use_when:
+      - "Wann nicht verwenden?"
+
+field_rules:
+  artifact_id:
+    format: "KOS-####"
+    rule: "Must be unique. Never reuse an artifact_id for a different artifact."
+  title:
+    rule: "Must be precise, human-readable, and stable across versions."
+  system:
+    rule: "Must map to KnowledgeOS, GosseOS, Operator Fischer, or another explicitly approved system layer."
+  artifact_type:
+    rule: "Must use one value from allowed_values.artifact_type."
+  status:
+    rule: "Must use one value from allowed_values.status. Canonical means default reusable source of truth. Deprecated means not active except for archive reference."
+  version:
+    format: "vMAJOR.MINOR"
+    rule: "Increment version when the artifact changes materially."
+  owner:
+    rule: "Human owner remains accountable. AI systems may assist but do not own artifacts."
+  created_at:
+    format: "YYYY-MM-DD"
+    rule: "Creation date of the artifact record."
+  updated_at:
+    format: "YYYY-MM-DD"
+    rule: "Last material update date."
+  source_location:
+    rule: "Must identify where the source originates from. Add exact path, URL, commit, file name, or memory reference where possible."
+  summary:
+    rule: "Must describe the artifact in 1-3 precise sentences."
+  core_patterns:
+    rule: "Must list the reusable semantic patterns contained in the artifact."
+  linked_artifacts:
+    rule: "Must reference related artifact_ids. Empty list allowed only if no relation exists yet."
+  risk_level:
+    rule: "Operational, compliance, safety, reputational, or decision-risk level."
+  drift_risk:
+    rule: "Likelihood that the artifact becomes inconsistent, outdated, duplicated, or misapplied over time."
+  verification_status:
+    rule: "Unchecked = raw. Checked = reviewed. Verified = approved for reuse. Conflict = must not be reused until resolved."
+  governance_notes:
+    rule: "Must include limitations, approval notes, known conflicts, or required human review."
+  reuse_rules:
+    rule: "Must define clear use and non-use conditions."
+
+drift_control:
+  checks:
+    - "Does the artifact duplicate an existing artifact?"
+    - "Does it conflict with a canonical artifact?"
+    - "Does it use deprecated terms as active terms?"
+    - "Is the version current?"
+    - "Is the source traceable?"
+    - "Are reuse conditions clear?"
+    - "Is the human-owner principle preserved?"
+  escalation:
+    low: "Mark as checked after review."
+    medium: "Require governance_notes and linked_artifacts validation."
+    high: "Set verification_status to conflict until manually resolved."
+
+release_policy:
+  canonical:
+    requirements:
+      - "verification_status must be verified"
+      - "drift_risk must be low or explicitly accepted"
+      - "source_location must be traceable"
+      - "reuse_rules must be complete"
+  active:
+    requirements:
+      - "verification_status must be checked or verified"
+      - "governance_notes must contain limitations"
+  deprecated:
+    requirements:
+      - "must state replacement artifact if available"
+      - "must not be used as active output source"
