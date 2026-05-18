@@ -1,0 +1,567 @@
+# KnowledgeOS Canonical Terms Registry
+# Purpose: Stabilize approved terminology for KnowledgeOS / GosseOS / Operator Fischer artifacts.
+# Counterpart: registry/deprecated_terms.yaml
+# Owner principle: Human remains owner. AI remains tool.
+
+registry_id: KOS-CANONICAL-TERMS-0001
+title: "KnowledgeOS Canonical Terms Registry"
+system: "KnowledgeOS / GosseOS / Operator Fischer"
+version: "v1.0"
+status: "canonical"
+owner: "Operator Fischer"
+created_at: "2026-05-19"
+updated_at: "2026-05-19"
+source_location: "GitHub: registry/canonical_terms.yaml"
+linked_artifacts:
+  - "KOS-0001"
+  - "KOS-0002"
+  - "KOS-0003"
+  - "KOS-0004"
+  - "KOS-0006"
+  - "KOS-0010"
+
+purpose:
+  - "Define approved active terms for KnowledgeOS / GosseOS / Operator Fischer artifacts."
+  - "Prevent semantic drift by stabilizing system names, layer names, and artifact classes."
+  - "Provide replacement targets for deprecated or ambiguous terms."
+  - "Support reproducible outputs across ChatGPT, Codex, Claude, local models, and future tools."
+
+canonical_rules:
+  - "Use canonical terms as default wording in active architecture, documentation, registry entries, and governance files."
+  - "Do not replace canonical terms with deprecated, vague, or legacy terms."
+  - "If raw input uses a deprecated term, map it to the closest canonical term unless archive context is explicitly required."
+  - "If one term could map to several layers, choose the layer by function: storage, execution, routing, verification, artifact output, or governance."
+  - "Public-facing outputs may use simplified public-safe wording instead of internal terms."
+  - "Internal architecture files should preserve exact canonical terminology."
+
+terms:
+  - term: "KnowledgeOS"
+    status: "canonical"
+    layer: "Artifact / Memory / Registry Layer"
+    definition: "The structured knowledge-management layer for artifact registration, metadata, semantic linking, memory extracts, version control, drift monitoring, and reusable knowledge governance."
+    use_when:
+      - "Referring to artifact storage, registry logic, memory extracts, semantic maps, versioning, and knowledge reuse."
+      - "Naming the repository, registry files, artifact governance, or memory-related architecture."
+    do_not_use_when:
+      - "Referring to execution orchestration or operational task running; use GosseOS or Workflow instead."
+    public_safe_label: "structured knowledge system"
+    related_terms:
+      - "Artifact Registry"
+      - "Semantic Map"
+      - "Memory Layer"
+      - "Drift Control"
+    deprecated_replacements:
+      - "Memory dump"
+      - "random notes"
+
+  - term: "GosseOS"
+    status: "canonical"
+    layer: "Execution / Operating System Layer"
+    definition: "The active operating framework for routing tasks, selecting modes, coordinating execution logic, applying governance, and producing reusable artifacts."
+    use_when:
+      - "Referring to the primary operating system and execution logic of the Operator Fischer architecture."
+      - "Describing task routing, mode selection, operational control, governance application, and artifact production."
+    do_not_use_when:
+      - "Referring only to stored knowledge or registry metadata; use KnowledgeOS instead."
+    public_safe_label: "AI operating framework"
+    related_terms:
+      - "Runtime Router"
+      - "Mode Engine"
+      - "Artifact Engine"
+      - "Governance Gate"
+    deprecated_replacements:
+      - "AgentOS"
+
+  - term: "Operator Fischer"
+    status: "canonical"
+    layer: "Human Owner / Executive System Architect"
+    definition: "The human owner and system architect of the working architecture. Holds final responsibility, approval authority, and governance ownership."
+    use_when:
+      - "Referring to the human operating role, ownership, release authority, or professional architecture identity."
+    do_not_use_when:
+      - "Do not use as a substitute for AI systems, tools, repositories, or automation agents."
+    public_safe_label: "human operator"
+    related_terms:
+      - "Human Owner"
+      - "Executive System Architect"
+      - "Approval Authority"
+    deprecated_replacements:
+      - "AI decides"
+      - "autonomous full control"
+
+  - term: "Artifact"
+    status: "canonical"
+    layer: "Output / Reuse Unit"
+    definition: "A structured, reusable unit of knowledge or work product with ID, source, status, version, governance notes, and reuse rules."
+    use_when:
+      - "Referring to prompts, SOPs, frameworks, dossiers, PDFs, code, research notes, workflows, protocols, or architecture files that are intended for reuse."
+    do_not_use_when:
+      - "Do not use for unprocessed raw notes unless they are converted into structured registry entries."
+    public_safe_label: "structured work product"
+    related_terms:
+      - "Artifact Registry"
+      - "Release Record"
+      - "Verification Record"
+    deprecated_replacements:
+      - "random notes"
+      - "Memory dump"
+
+  - term: "Artifact Registry"
+    status: "canonical"
+    layer: "Registry Layer"
+    definition: "The master index that records all reusable artifacts with metadata, status, version, links, drift risk, and verification state."
+    use_when:
+      - "Referring to registry/artifacts.yaml or the structured index of KnowledgeOS artifacts."
+    do_not_use_when:
+      - "Do not use for the schema itself; use Artifact Schema."
+    public_safe_label: "artifact index"
+    related_terms:
+      - "Artifact Schema"
+      - "Registry Entry"
+      - "KnowledgeOS"
+
+  - term: "Artifact Schema"
+    status: "canonical"
+    layer: "Metadata Standard"
+    definition: "The required metadata model for KnowledgeOS artifacts, including ID, type, status, source, version, risk, verification, and reuse fields."
+    use_when:
+      - "Referring to registry/artifact_schema.yaml or artifact metadata validation rules."
+    do_not_use_when:
+      - "Do not use as the actual registry of artifacts; use Artifact Registry."
+    public_safe_label: "metadata schema"
+    related_terms:
+      - "Artifact Registry"
+      - "Verification Checklist"
+
+  - term: "Canonical"
+    status: "canonical"
+    layer: "Release Status"
+    definition: "Approved source-of-truth status for a verified artifact after human owner approval."
+    use_when:
+      - "Marking stable default references used across the architecture."
+    do_not_use_when:
+      - "Do not use for unchecked, draft, experimental, or memory-only content."
+    public_safe_label: "approved reference version"
+    related_terms:
+      - "Verified"
+      - "Release Policy"
+      - "Owner Gate"
+
+  - term: "Active"
+    status: "canonical"
+    layer: "Release Status"
+    definition: "Currently usable artifact status that may be checked or verified but is not necessarily the final source of truth."
+    use_when:
+      - "Marking working artifacts that are usable in current workflows."
+    do_not_use_when:
+      - "Do not use as a synonym for canonical."
+    public_safe_label: "currently usable"
+    related_terms:
+      - "Checked"
+      - "Verified"
+      - "Canonical"
+
+  - term: "Deprecated"
+    status: "canonical"
+    layer: "Release Status / Terminology Governance"
+    definition: "A term or artifact that is retained for traceability but must not be used as active system language or default reusable source."
+    use_when:
+      - "Marking replaced, outdated, legacy, or archive-only terminology and artifacts."
+    do_not_use_when:
+      - "Do not use to describe current preferred architecture terms."
+    public_safe_label: "retired / legacy"
+    related_terms:
+      - "Archive"
+      - "Legacy"
+      - "Deprecated Terms Registry"
+
+  - term: "Protocol"
+    status: "canonical"
+    layer: "Operating Logic"
+    definition: "A reusable operating agreement or structured logic that defines roles, handoffs, verification, constraints, and execution behavior across tools or models."
+    use_when:
+      - "Describing multi-model cooperation, model handoffs, execution agreements, and repeatable operating logic."
+    do_not_use_when:
+      - "Do not reduce complex multi-step operating logic to Prompt only."
+    public_safe_label: "operating protocol"
+    related_terms:
+      - "Multi-Model Cooperation Protocol"
+      - "Workflow"
+      - "Handoff"
+    deprecated_replacements:
+      - "Prompt only"
+
+  - term: "Workflow"
+    status: "canonical"
+    layer: "Process / Execution Sequence"
+    definition: "A repeatable process sequence with defined steps, inputs, outputs, decision points, escalation logic, and quality checks."
+    use_when:
+      - "Describing operational flows, process execution, handoff chains, automation routines, and task procedures."
+      - "Designing System Executive Orchestrator flows with monitoring, escalation, reporting, and governance."
+    do_not_use_when:
+      - "Do not use for a single static instruction; use Prompt."
+    public_safe_label: "process workflow"
+    related_terms:
+      - "SOP"
+      - "Protocol"
+      - "Execution Flow"
+      - "System Executive Orchestrator"
+    deprecated_replacements:
+      - "Prompt only"
+
+  - term: "Skill"
+    status: "canonical"
+    layer: "Capability / Reusable Function"
+    definition: "A reusable capability that performs a defined class of tasks, often with inputs, constraints, procedure, and output expectations."
+    use_when:
+      - "Referring to repeatable task capability, model/tool behavior package, or specialized execution routine."
+    do_not_use_when:
+      - "Do not use for full architecture or broad operating system logic."
+    public_safe_label: "reusable capability"
+    related_terms:
+      - "Workflow"
+      - "Protocol"
+      - "Tooling"
+
+  - term: "Architecture"
+    status: "canonical"
+    layer: "System Design"
+    definition: "A high-level system design defining components, layers, responsibilities, interfaces, governance, and operating relationships."
+    use_when:
+      - "Describing GosseOS, KnowledgeOS, Operator Fischer Harness, Prompterator system design, or multi-layer system structure."
+    do_not_use_when:
+      - "Do not use for a single prompt or narrow checklist unless it defines system-level structure."
+    public_safe_label: "system architecture"
+    related_terms:
+      - "System Layer"
+      - "Runtime Router"
+      - "Governance Layer"
+      - "Artifact Engine"
+    deprecated_replacements:
+      - "Prompt only"
+
+  - term: "Prompt"
+    status: "canonical"
+    layer: "Instruction Artifact"
+    definition: "A written instruction artifact that directs a model toward a task, mode, format, or output."
+    use_when:
+      - "Referring to model instructions, masterprompts, handoff prompts, or reusable instruction blocks."
+    do_not_use_when:
+      - "Do not classify every complex system structure as Prompt. Use Protocol, Workflow, Skill, or Architecture where appropriate."
+    public_safe_label: "AI instruction"
+    related_terms:
+      - "Masterprompt"
+      - "Handoff Prompt"
+      - "Validator Prompt"
+
+  - term: "Masterprompt"
+    status: "canonical"
+    layer: "Prompt System"
+    definition: "A high-coverage prompt artifact that defines role, context, constraints, output structure, quality logic, and reuse behavior for a class of tasks."
+    use_when:
+      - "Referring to reusable high-level prompts such as Corporate Output Masterprompt or Supply Chain AI Operating System Masterprompt."
+    do_not_use_when:
+      - "Do not use for repository-wide architecture unless it contains an explicit prompt artifact."
+    public_safe_label: "master instruction template"
+    related_terms:
+      - "Prompt"
+      - "Protocol"
+      - "Mode"
+
+  - term: "Mode"
+    status: "canonical"
+    layer: "Runtime Behavior"
+    definition: "A selected behavior pattern for processing input, such as ARCHITECT, BUILD, AUDIT, RED TEAM, BRIEFING, or UNIVERSAL CONVERTER."
+    use_when:
+      - "Routing work into a defined analysis, build, audit, briefing, or artifact-generation behavior."
+    do_not_use_when:
+      - "Do not use as a permanent artifact class; use artifact_type for that."
+    public_safe_label: "working mode"
+    related_terms:
+      - "Mode Engine"
+      - "Runtime Router"
+      - "Problem Class"
+
+  - term: "Problem Class"
+    status: "canonical"
+    layer: "Input Classification"
+    definition: "The classified type of problem or task used to route raw input into an appropriate mode, workflow, and artifact output."
+    use_when:
+      - "Beginning structured analysis or converting raw input into a reusable artifact."
+    do_not_use_when:
+      - "Do not use as a replacement for artifact type or status."
+    public_safe_label: "problem category"
+    related_terms:
+      - "Raw Input"
+      - "Mode"
+      - "Universal Converter"
+
+  - term: "Universal Converter"
+    status: "canonical"
+    layer: "Conversion Mode"
+    definition: "A mode that transforms raw input into structured artifacts with problem class, facts, assumptions, hypotheses, blueprint, direct artifact, and quality check."
+    use_when:
+      - "Turning unstructured requests, notes, or concepts into structured use cases, workflows, SOPs, or registry-ready artifacts."
+    do_not_use_when:
+      - "Do not use for tasks that require only a simple factual answer."
+    public_safe_label: "structured conversion mode"
+    related_terms:
+      - "Problem Class"
+      - "Artifact"
+      - "Quality Check"
+
+  - term: "Runtime Router"
+    status: "canonical"
+    layer: "Routing Layer"
+    definition: "The logic that maps raw input to problem class, mode, required artifact type, verification path, and reuse destination."
+    use_when:
+      - "Describing task routing, mode selection, and orchestration inside GosseOS or Operator Fischer Harness."
+    do_not_use_when:
+      - "Do not use for long-term artifact storage; use Artifact Registry."
+    public_safe_label: "routing logic"
+    related_terms:
+      - "Mode Engine"
+      - "Problem Class"
+      - "Workflow"
+
+  - term: "Mode Engine"
+    status: "canonical"
+    layer: "Execution Layer"
+    definition: "The component that activates the correct operating mode for a given task or problem class."
+    use_when:
+      - "Referring to automatic or manual mode selection in GosseOS."
+    do_not_use_when:
+      - "Do not use for storage, registry, or release governance."
+    public_safe_label: "mode selection logic"
+    related_terms:
+      - "Runtime Router"
+      - "Mode"
+
+  - term: "Artifact Engine"
+    status: "canonical"
+    layer: "Output Generation"
+    definition: "The component or logic that produces structured, reusable outputs such as SOPs, dossiers, prompts, PDFs, workflows, and registry entries."
+    use_when:
+      - "Describing output generation from structured modes or workflows."
+    do_not_use_when:
+      - "Do not use as a synonym for KnowledgeOS registry storage."
+    public_safe_label: "output generation logic"
+    related_terms:
+      - "Artifact"
+      - "Workflow"
+      - "Quality Check"
+
+  - term: "Verification Layer"
+    status: "canonical"
+    layer: "Quality / Governance Layer"
+    definition: "The review layer that checks schema, source, terminology, drift, risk, and reuse readiness before artifact release."
+    use_when:
+      - "Describing artifact validation, quality checks, release gates, or governance review."
+    do_not_use_when:
+      - "Do not use as a replacement for human approval."
+    public_safe_label: "quality verification layer"
+    related_terms:
+      - "Verification Checklist"
+      - "Drift Report"
+      - "Release Gate"
+
+  - term: "Governance Gate"
+    status: "canonical"
+    layer: "Governance / Release Control"
+    definition: "The decision checkpoint that determines whether an artifact can proceed, be reused, become canonical, or must be blocked."
+    use_when:
+      - "Describing release decisions, escalation, risk checks, owner approval, and blocker handling."
+    do_not_use_when:
+      - "Do not use to imply AI has final approval authority."
+    public_safe_label: "approval checkpoint"
+    related_terms:
+      - "Release Policy"
+      - "Owner Gate"
+      - "Conflict"
+
+  - term: "Owner Gate"
+    status: "canonical"
+    layer: "Human Approval"
+    definition: "The final human approval point for canonical releases, high-risk reuse, and major governance decisions."
+    use_when:
+      - "Referring to Operator Fischer approval for canonical status, high-risk release, or major changes."
+    do_not_use_when:
+      - "Do not use for automated checks that only recommend decisions."
+    public_safe_label: "human approval step"
+    related_terms:
+      - "Operator Fischer"
+      - "Governance Gate"
+      - "Release Policy"
+    deprecated_replacements:
+      - "AI decides"
+
+  - term: "Drift Control"
+    status: "canonical"
+    layer: "Consistency / Risk Control"
+    definition: "The mechanisms that detect, classify, and resolve loss of consistency across terminology, versions, sources, patterns, governance, and outputs."
+    use_when:
+      - "Referring to drift scans, drift reports, terminology checks, and release blockers."
+    do_not_use_when:
+      - "Do not use as a vague synonym for general quality."
+    public_safe_label: "consistency control"
+    related_terms:
+      - "Drift Report"
+      - "Deprecated Terms Registry"
+      - "Canonical Terms Registry"
+
+  - term: "Semantic Map"
+    status: "canonical"
+    layer: "Knowledge Connection Layer"
+    definition: "A structured map of relationships between terms, artifacts, patterns, systems, workflows, and governance rules."
+    use_when:
+      - "Describing how KnowledgeOS links patterns and artifacts beyond simple keyword matching."
+    do_not_use_when:
+      - "Do not use as a substitute for the actual artifact registry."
+    public_safe_label: "knowledge relationship map"
+    related_terms:
+      - "Pattern Map"
+      - "Artifact Relations"
+      - "KnowledgeOS"
+
+  - term: "Pattern Map"
+    status: "canonical"
+    layer: "Reusable Logic Map"
+    definition: "A structured view of reusable patterns, their source artifacts, allowed use cases, and conflict relationships."
+    use_when:
+      - "Connecting repeated operating patterns such as governance, routing, handoff, verification, and artifact generation."
+    do_not_use_when:
+      - "Do not use for file storage or source traceability alone."
+    public_safe_label: "reusable pattern map"
+    related_terms:
+      - "Semantic Map"
+      - "Core Patterns"
+      - "Artifact Registry"
+
+  - term: "Source Registry"
+    status: "canonical"
+    layer: "Source Traceability"
+    definition: "A structured index of origins for artifacts, including repositories, files, chats, memory baselines, PDFs, notes, and external sources."
+    use_when:
+      - "Tracking where artifact content came from and whether it is traceable."
+    do_not_use_when:
+      - "Do not use to imply a source is verified without verification status."
+    public_safe_label: "source index"
+    related_terms:
+      - "Source Location"
+      - "Source Validation"
+      - "Verification Checklist"
+
+  - term: "Handoff"
+    status: "canonical"
+    layer: "Model / Tool Coordination"
+    definition: "A structured transfer of task context, constraints, instructions, expected output, and verification criteria between models, tools, or execution environments."
+    use_when:
+      - "Coordinating ChatGPT, Codex, Claude, GitHub, local models, or other tooling."
+    do_not_use_when:
+      - "Do not use for unsupervised authority transfer."
+    public_safe_label: "structured task transfer"
+    related_terms:
+      - "Multi-Model Cooperation Protocol"
+      - "Protocol"
+      - "Workflow"
+
+  - term: "System Executive Orchestrator"
+    status: "active"
+    layer: "Executive Orchestration / Workflow Control"
+    definition: "A high-level orchestrating control concept for coordinating process steps, monitoring, escalation, reporting, and governance across IT or business workflows."
+    use_when:
+      - "Designing executive-level workflow orchestration, process control, monitoring, escalation, and reporting logic."
+      - "Converting workflow concepts into operational artifacts for orchestrator systems."
+    do_not_use_when:
+      - "Do not use as the active primary name for GosseOS or KnowledgeOS unless explicitly scoped as a separate orchestrator role."
+    public_safe_label: "executive workflow orchestrator"
+    related_terms:
+      - "Workflow"
+      - "Runtime Router"
+      - "Governance Gate"
+      - "Monitoring"
+      - "Escalation Logic"
+    verification_status: "checked"
+    notes: "Included as active term because it appears as a recurring workflow-design concept and should be classified rather than confused with GosseOS or KnowledgeOS."
+
+  - term: "Human Owner"
+    status: "canonical"
+    layer: "Governance / Accountability"
+    definition: "The accountable person who approves, rejects, releases, and owns decisions. AI systems support analysis but do not own decisions."
+    use_when:
+      - "Referring to accountability, approval, canonical release, or decision responsibility."
+    do_not_use_when:
+      - "Do not use for AI systems or automated tools."
+    public_safe_label: "responsible human owner"
+    related_terms:
+      - "Operator Fischer"
+      - "Owner Gate"
+      - "Release Authority"
+    deprecated_replacements:
+      - "AI decides"
+      - "autonomous full control"
+
+  - term: "AI Tool"
+    status: "canonical"
+    layer: "Execution Support"
+    definition: "An AI system used for analysis, structuring, drafting, comparison, code generation, or verification support under human ownership."
+    use_when:
+      - "Referring to ChatGPT, Codex, Claude, local models, or other AI systems as supporting tools."
+    do_not_use_when:
+      - "Do not frame as final decision owner, legal owner, compliance owner, or unsupervised operator."
+    public_safe_label: "AI assistant/tool"
+    related_terms:
+      - "Human Owner"
+      - "Handoff"
+      - "Verification Layer"
+    deprecated_replacements:
+      - "AI decides"
+
+classification_matrix:
+  prompt:
+    use_for: "Single or reusable model instruction."
+    not_for: "Full operating logic, systems, or process orchestration."
+  protocol:
+    use_for: "Multi-role operating agreement, handoff rules, verification rules."
+    not_for: "Single static instruction."
+  skill:
+    use_for: "Reusable capability for a defined task class."
+    not_for: "Full system architecture."
+  workflow:
+    use_for: "Sequential process with steps, triggers, escalation, outputs, and checks."
+    not_for: "Unstructured note or single command."
+  architecture:
+    use_for: "System-level design with layers, components, interfaces, and governance."
+    not_for: "Small prompt or checklist without system structure."
+
+rewrite_policy:
+  - raw_or_legacy_term: "AgentOS"
+    preferred_term: "GosseOS / KnowledgeOS / Agent-Layer depending on context"
+    rule: "Replace with canonical system or layer term. Keep AgentOS only in archive context."
+  - raw_or_legacy_term: "Memory dump"
+    preferred_term: "curated memory extract / KnowledgeOS artifact entry"
+    rule: "Replace unstructured storage language with governed artifact language."
+  - raw_or_legacy_term: "Prompt only"
+    preferred_term: "Prompt / Protocol / Skill / Workflow / Architecture"
+    rule: "Classify by functional scope instead of collapsing everything into prompt terminology."
+  - raw_or_legacy_term: "AI decides"
+    preferred_term: "AI supports decision preparation; human owner decides"
+    rule: "Preserve human ownership and governance authority."
+  - raw_or_legacy_term: "autonomous full control"
+    preferred_term: "bounded tool execution / supervised execution / human-approved automation"
+    rule: "Keep automation bounded, auditable, and owner-controlled."
+
+quality_gate:
+  checks:
+    - "Canonical term appears with correct layer meaning."
+    - "Term does not conflict with deprecated_terms.yaml."
+    - "Term is not used outside intended scope."
+    - "Public-safe label is used where internal terminology would be too exposed."
+    - "Prompt, Protocol, Skill, Workflow, and Architecture are classified correctly."
+    - "Human-owner principle is preserved."
+
+change_log:
+  - date: "2026-05-19"
+    version: "v1.0"
+    change: "Initial canonical terms registry created for KnowledgeOS terminology stabilization."
+    owner: "Operator Fischer"
