@@ -1,0 +1,329 @@
+# KnowledgeOS Pattern Map
+# Purpose: Map reusable semantic and operational patterns across KnowledgeOS / GosseOS / Operator Fischer artifacts.
+# Counterparts: registry/artifacts.yaml, registry/canonical_terms.yaml, registry/deprecated_terms.yaml
+# Owner principle: Human remains owner. AI remains tool.
+
+pattern_map_id: KOS-PATTERN-MAP-0001
+title: "KnowledgeOS Pattern Map"
+system: "KnowledgeOS / GosseOS / Operator Fischer"
+version: "v1.0"
+status: "active"
+owner: "Operator Fischer"
+created_at: "2026-05-19"
+updated_at: "2026-05-19"
+source_location: "GitHub: registry/pattern_map.yaml"
+linked_artifacts:
+  - "KOS-0001"
+  - "KOS-0002"
+  - "KOS-0003"
+  - "KOS-0004"
+  - "KOS-0005"
+  - "KOS-0006"
+  - "KOS-0007"
+  - "KOS-0008"
+  - "KOS-0009"
+  - "KOS-0010"
+
+purpose:
+  - "Connect reusable patterns to their artifacts, operating layers, allowed contexts, and governance constraints."
+  - "Prevent pattern drift by distinguishing Prompt, Protocol, Skill, Workflow, Architecture, Governance Rule, and Artifact."
+  - "Provide routing hints for future artifact creation and verification."
+  - "Support cross-model reuse across ChatGPT, Codex, Claude, local models, and future tooling."
+
+pattern_rules:
+  - "Every pattern must have a stable name, definition, layer, related artifacts, and reuse rule."
+  - "Patterns must not override canonical terms from registry/canonical_terms.yaml."
+  - "Patterns must not revive deprecated terms from registry/deprecated_terms.yaml."
+  - "If a pattern becomes complex enough to require its own file, register it in registry/artifacts.yaml."
+  - "If a pattern affects release, verification, public-facing claims, or tool authority, route it through governance review."
+
+patterns:
+  - pattern_id: "PAT-0001"
+    name: "Raw Input to Reusable Artifact"
+    layer: "Core Operating Flow"
+    definition: "Transforms unstructured input into a classified, verified, reusable artifact."
+    canonical_flow:
+      - "Raw Input"
+      - "Problem Class"
+      - "Mode"
+      - "Artifact"
+      - "Quality Check"
+      - "Governance"
+      - "Reuse"
+    related_artifacts:
+      - "KOS-0001"
+      - "KOS-0002"
+      - "KOS-0006"
+    use_when:
+      - "Any input should become a structured, reusable KnowledgeOS artifact."
+    do_not_use_when:
+      - "The user only needs a simple answer and no reusable artifact."
+    drift_risk: "medium"
+    governance_notes: "This is the default transformation pattern for Operator Fischer knowledge work."
+
+  - pattern_id: "PAT-0002"
+    name: "Artifact Registry Governance"
+    layer: "KnowledgeOS Registry Layer"
+    definition: "Ensures every reusable artifact has ID, source, status, version, links, risk, verification status, and reuse rules."
+    related_artifacts:
+      - "KOS-0001"
+      - "KOS-0002"
+    use_when:
+      - "Registering new prompts, frameworks, SOPs, dossiers, PDFs, code, research notes, workflows, protocols, or architectures."
+    do_not_use_when:
+      - "Capturing raw notes that are not intended for reuse yet."
+    drift_risk: "low"
+    governance_notes: "No reusable knowledge without ID. No canonical artifact without verification."
+
+  - pattern_id: "PAT-0003"
+    name: "Terminology Stabilization"
+    layer: "Semantic Governance"
+    definition: "Controls active and deprecated terminology through canonical and deprecated term registries."
+    related_artifacts:
+      - "KOS-0002"
+      - "KOS-0010"
+    related_files:
+      - "registry/canonical_terms.yaml"
+      - "registry/deprecated_terms.yaml"
+    use_when:
+      - "Creating, reviewing, or publishing architecture language, public copy, governance text, or product terminology."
+    do_not_use_when:
+      - "Archive context where deprecated terms are explicitly labelled as historical."
+    drift_risk: "medium"
+    governance_notes: "Deprecated terms must not return as active primary system terms."
+
+  - pattern_id: "PAT-0004"
+    name: "Human Owner and AI Tool Boundary"
+    layer: "Governance / Accountability"
+    definition: "Preserves the rule that the human owner approves and remains accountable while AI systems support analysis, drafting, execution, and verification."
+    related_artifacts:
+      - "KOS-0003"
+      - "KOS-0004"
+      - "KOS-0008"
+    use_when:
+      - "Defining release authority, automation boundaries, governance, tool delegation, or canonical approval."
+    do_not_use_when:
+      - "Never replace this with AI-owned decision authority."
+    drift_risk: "high"
+    governance_notes: "Any artifact that frames AI as final decision-maker must be marked conflict."
+
+  - pattern_id: "PAT-0005"
+    name: "Multi-Model Cooperation"
+    layer: "Protocol / Handoff Layer"
+    definition: "Coordinates specialized AI systems and tools into one artifact-oriented workflow with explicit roles, handoffs, and verification."
+    related_artifacts:
+      - "KOS-0004"
+      - "KOS-0006"
+      - "KOS-0009"
+    roles:
+      ChatGPT: "Architecture, routing, governance, context management."
+      Codex: "Technical precision, code generation, runtime logic, automation, system operations."
+      Claude: "Longform analysis, documentation, refactoring, operations planning."
+    use_when:
+      - "Tasks require multiple AI systems or toolchains to produce one coherent result."
+    do_not_use_when:
+      - "A single model response is sufficient and no handoff is needed."
+    drift_risk: "medium"
+    governance_notes: "Handoffs must remain bounded, supervised, and owner-controlled."
+
+  - pattern_id: "PAT-0006"
+    name: "System Executive Orchestrator Workflow"
+    layer: "Workflow / Executive Orchestration"
+    definition: "A workflow-control pattern for central orchestration of process steps, monitoring, escalation, error handling, reporting, and governance."
+    source_context: "User-provided System Executive Orchestrator workflow use case, 2026-05-19."
+    related_artifacts:
+      - "KOS-0004"
+      - "KOS-0006"
+    related_terms:
+      - "System Executive Orchestrator"
+      - "Workflow"
+      - "Runtime Router"
+      - "Governance Gate"
+      - "Verification Layer"
+    problem_class:
+      facts:
+        - "Workflow design for a System Executive Orchestrator was requested."
+        - "The intended result is a structured workflow with process steps, escalation logic, error handling, reporting, and governance."
+      assumptions:
+        - "The orchestrator operates across IT or business processes."
+        - "The workflow includes monitoring, escalation, and reporting."
+      hypotheses:
+        - "A structured workflow can improve efficiency, transparency, and controllability."
+    canonical_flow:
+      - "Workflow Initialization"
+      - "Input and Trigger Validation"
+      - "Process Step Routing"
+      - "Execution Monitoring"
+      - "Deviation Detection"
+      - "Escalation Handling"
+      - "Action Logging"
+      - "Output Reporting"
+      - "Governance Review"
+      - "Feedback Loop"
+    subpatterns:
+      - "Trigger-Based Initialization"
+      - "Status Update Loop"
+      - "Deviation and Exception Detection"
+      - "Escalation Matrix"
+      - "Audit Logging"
+      - "KPI Dashboard"
+      - "Governance Review"
+    expected_outputs:
+      - "Documented workflow"
+      - "Realtime status reports"
+      - "Escalation messages"
+      - "Traceability logs"
+      - "KPI dashboard"
+      - "Improvement backlog"
+    kpi_assumptions:
+      process_cycle_time_reduction: "20% [ASSUMPTION]"
+      manual_intervention_reduction: "30% [ASSUMPTION]"
+      error_detection_improvement: "25% [ASSUMPTION]"
+      escalation_response_improvement: "40% [ASSUMPTION]"
+    use_when:
+      - "Designing an executive-level workflow orchestration system."
+      - "Creating SOPs, automation blueprints, process-control documents, or orchestrator use cases."
+      - "Connecting monitoring, escalation, error handling, reporting, and governance into one operating flow."
+    do_not_use_when:
+      - "The task only needs a simple static prompt."
+      - "The orchestrator concept is being used as a replacement name for GosseOS or KnowledgeOS."
+    drift_risk: "medium"
+    risk_level: "medium"
+    verification_status: "checked"
+    governance_notes: "Treat as workflow pattern, not as primary system name. KPI values remain assumptions until measured."
+
+  - pattern_id: "PAT-0007"
+    name: "Universal Converter"
+    layer: "Mode / Conversion Layer"
+    definition: "Converts raw input into structured problem class, facts, assumptions, hypotheses, blueprint, direct artifact, quality check, and governance layer."
+    related_artifacts:
+      - "KOS-0006"
+      - "KOS-0009"
+    required_sections:
+      - "Problemklasse"
+      - "Fakten / Annahmen / Hypothesen"
+      - "Modus"
+      - "Artefakt-Blueprint"
+      - "Direktes Artefakt"
+      - "Qualitätsprüfung"
+      - "Governance"
+    use_when:
+      - "Turning rough ideas, pasted text, or early use cases into structured reusable artifacts."
+    do_not_use_when:
+      - "Only a short direct answer is needed."
+    drift_risk: "low"
+    governance_notes: "Must clearly separate facts, assumptions, and hypotheses."
+
+  - pattern_id: "PAT-0008"
+    name: "Drift Report and Release Gate"
+    layer: "Governance / Release Control"
+    definition: "Checks terminology, version, pattern, source, governance, and output drift before release or canonical promotion."
+    related_artifacts:
+      - "KOS-0003"
+    related_files:
+      - "governance/drift_report_template.md"
+      - "governance/release_policy.md"
+      - "governance/verification_checklist.md"
+    use_when:
+      - "A reusable artifact is proposed for checked, verified, canonical, deprecated, or archived status."
+    do_not_use_when:
+      - "Raw brainstorming with no reuse intention."
+    drift_risk: "low"
+    governance_notes: "Canonical release requires owner approval."
+
+  - pattern_id: "PAT-0009"
+    name: "Corporate Professional Output"
+    layer: "Output Style / Business Artifact"
+    definition: "Creates professional, structured, market-oriented business documents for logistics, operations, supply chain, applications, SOPs, KPI summaries, and management communication."
+    related_artifacts:
+      - "KOS-0007"
+      - "KOS-0008"
+    use_when:
+      - "Creating business, application, logistics, process, operations, or management artifacts."
+    do_not_use_when:
+      - "Creative fantasy, meme, child-story, or informal outputs."
+    drift_risk: "low"
+    governance_notes: "Must not invent credentials, especially SAP hands-on experience."
+
+  - pattern_id: "PAT-0010"
+    name: "Professional Positioning Truth Boundary"
+    layer: "Career / Credibility Governance"
+    definition: "Prevents overclaiming experience, credentials, tool expertise, or professional authority in public-facing or career-critical documents."
+    related_artifacts:
+      - "KOS-0008"
+      - "KOS-0007"
+    use_when:
+      - "Writing CVs, applications, recruiter dossiers, LinkedIn posts, professional bios, or portfolio artifacts."
+    do_not_use_when:
+      - "Non-career creative outputs."
+    drift_risk: "medium"
+    governance_notes: "No direct SAP hands-on claim unless explicitly provided and verified."
+
+pattern_relations:
+  - from: "PAT-0001"
+    to: "PAT-0002"
+    relation: "requires registry when reusable"
+  - from: "PAT-0002"
+    to: "PAT-0003"
+    relation: "requires terminology governance"
+  - from: "PAT-0002"
+    to: "PAT-0008"
+    relation: "requires release gate for verified/canonical status"
+  - from: "PAT-0005"
+    to: "PAT-0004"
+    relation: "bounded by human owner and AI tool boundary"
+  - from: "PAT-0006"
+    to: "PAT-0007"
+    relation: "can be generated through Universal Converter mode"
+  - from: "PAT-0006"
+    to: "PAT-0008"
+    relation: "requires drift and release review before canonical reuse"
+  - from: "PAT-0009"
+    to: "PAT-0010"
+    relation: "bounded by truthful professional positioning"
+
+routing_hints:
+  if_input_contains:
+    - signal: "Workflow design"
+      route_to:
+        - "PAT-0006"
+        - "PAT-0007"
+    - signal: "System Executive Orchestrator"
+      route_to:
+        - "PAT-0006"
+        - "PAT-0008"
+    - signal: "governance"
+      route_to:
+        - "PAT-0003"
+        - "PAT-0004"
+        - "PAT-0008"
+    - signal: "registry"
+      route_to:
+        - "PAT-0002"
+    - signal: "deprecated term"
+      route_to:
+        - "PAT-0003"
+    - signal: "multi-model handoff"
+      route_to:
+        - "PAT-0005"
+    - signal: "application / CV / portfolio / recruiter"
+      route_to:
+        - "PAT-0009"
+        - "PAT-0010"
+
+quality_gate:
+  checks:
+    - "Pattern has stable ID and name."
+    - "Pattern has layer classification."
+    - "Pattern is linked to relevant artifacts."
+    - "Pattern does not conflict with canonical terms."
+    - "Pattern does not revive deprecated terms."
+    - "Pattern has use and non-use rules."
+    - "Pattern includes governance notes where risk exists."
+    - "Pattern can be reused by another model or operator."
+
+change_log:
+  - date: "2026-05-19"
+    version: "v1.0"
+    change: "Initial KnowledgeOS pattern map created, including System Executive Orchestrator workflow pattern."
+    owner: "Operator Fischer"
