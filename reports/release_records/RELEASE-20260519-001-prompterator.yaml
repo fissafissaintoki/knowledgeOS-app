@@ -1,0 +1,30 @@
+release_record:
+  release_id: "RELEASE-20260519-001"
+  artifact_id: "KOS-0005"
+  artifact_title: "Prompterator Master Spec v1.0"
+  previous_status: "active"
+  previous_verification_status: "checked"
+  proposed_status: "active"
+  proposed_verification_status: "checked"
+  release_type: "proof_run"
+  version_before: "v1.0"
+  version_after: "v1.0"
+  source_check: "pass"
+  terminology_check: "pass"
+  drift_check: "yellow"
+  blocker_exists: false
+  approved_by: "Operator Fischer"
+  approval_date: "2026-05-19"
+
+  decision:
+    action: "keep_active"
+    canonical_release: false
+    rationale: "Prompterator is accepted as KnowledgeOS Proof-of-Work example. It has an explicit artifact file, verification record, and drift report. It remains active but not canonical until public-safe copy, source registry update, and implementation proof are completed."
+
+  required_actions:
+    - "Update registry/artifacts.yaml source_location for KOS-0005."
+    - "Update registry/source_registry.yaml with the explicit Prompterator artifact file."
+    - "Create public-safe one-pager for Prompterator."
+    - "Create implementation proof or runtime test for Prompterator if product-readiness claims are made."
+
+  governance_notes: "Proof-of-Work confirms KnowledgeOS can ingest a memory-baseline artifact, convert it into a repository artifact, verify it, check drift, and record release status."
