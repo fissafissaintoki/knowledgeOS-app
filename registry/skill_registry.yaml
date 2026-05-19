@@ -1,0 +1,291 @@
+# KnowledgeOS Skill Registry
+# Purpose: Extracted reusable skills from Operator Fischer / Prompterator / KnowledgeOS work.
+# Owner principle: Human remains owner. AI remains tool.
+
+registry_id: KOS-SKILL-REGISTRY-0001
+title: "KnowledgeOS Skill Registry"
+system: "KnowledgeOS / GosseOS / Prompterator / Operator Fischer"
+version: "v1.0"
+status: "active"
+owner: "Operator Fischer"
+created_at: "2026-05-19"
+updated_at: "2026-05-19"
+
+skill_rules:
+  - "A skill is a reusable operational capability, not just a prompt."
+  - "Each skill must have trigger signals, output contract, quality gate, and reuse rules."
+  - "Skills may route to prompts, workflows, templates, files, builders, or governance checks."
+  - "A skill becomes implementation-ready only after at least one runtime test or proof-of-work."
+  - "Human owner remains responsible for approval, release, and real-world use."
+
+skills:
+  - skill_id: "SKILL-0001"
+    title: "Intent-to-Artifact Routing"
+    status: "active"
+    maturity: "tested"
+    linked_artifacts:
+      - "KOS-0026"
+      - "KOS-0020"
+      - "KOS-0022"
+      - "KOS-0023"
+      - "KOS-0024"
+      - "KOS-0025"
+      - "KOS-0027"
+    purpose: "Detect explicit requested artifact type and route to the correct specialized builder before generic conversion."
+    trigger_signals:
+      - "Codex-Handoff-Prompt"
+      - "LinkedIn-Post"
+      - "Forschungsbrief"
+      - "SOP"
+      - "Bewerbungsprofil"
+      - "Entscheidungsmatrix"
+    output_contract: "Selected builder mode and primary requested artifact."
+    usability_level: "high"
+    use_when:
+      - "User names a concrete output type."
+      - "Prompterator must avoid generic dossier overproduction."
+    do_not_use_when:
+      - "User explicitly asks for a broad portfolio, dossier, or PDF."
+    quality_gate:
+      - "Primary requested artifact appears first."
+      - "No Executive/Portfolio/Dossier structure unless explicitly requested."
+
+  - skill_id: "SKILL-0002"
+    title: "Codex Handoff Builder"
+    status: "active"
+    maturity: "tested_partial"
+    linked_artifacts:
+      - "KOS-0020"
+      - "PROOF-20260519-004"
+    purpose: "Convert app or implementation ideas into Codex-ready handoff prompts."
+    trigger_signals:
+      - "Codex-Handoff"
+      - "Codex Prompt"
+      - "Implementation Prompt"
+      - "Coding Agent Handoff"
+    output_contract: "Role, Project Goal, Context, Technical Assumptions, Requirements, Implementation Tasks, Acceptance Criteria, Test Instructions, Expected Codex Output."
+    usability_level: "high"
+    use_when:
+      - "User wants a prompt for Codex or coding-agent implementation."
+    do_not_use_when:
+      - "User wants strategy, portfolio, or generic app description only."
+    quality_gate:
+      - "If app details are missing, generate intake prompt instead of fake technical spec."
+
+  - skill_id: "SKILL-0003"
+    title: "Social Post Builder"
+    status: "active"
+    maturity: "tested_partial"
+    linked_artifacts:
+      - "KOS-0022"
+      - "PROOF-20260519-006"
+    purpose: "Generate finished public-facing LinkedIn, Skool, community, comment, or social posts."
+    trigger_signals:
+      - "LinkedIn-Post"
+      - "Post"
+      - "Beitrag"
+      - "Kommentar"
+      - "Skool-Post"
+      - "Community-Post"
+    output_contract: "Finished post first, then optional variants, rationale, and quality check."
+    usability_level: "high"
+    use_when:
+      - "User requests public or community copy."
+    do_not_use_when:
+      - "User requests internal analysis, report, dossier, or SOP."
+    quality_gate:
+      - "No unverified numbers."
+      - "No internal terminology overload."
+      - "Post draft must be primary output."
+
+  - skill_id: "SKILL-0004"
+    title: "Research Brief Builder"
+    status: "active"
+    maturity: "tested_partial"
+    linked_artifacts:
+      - "KOS-0023"
+      - "PROOF-20260519-007"
+    purpose: "Generate evidence-structured research briefs with source, uncertainty, and open-question logic."
+    trigger_signals:
+      - "Forschungsbrief"
+      - "Research Brief"
+      - "Fakten, Annahmen, Hypothesen"
+      - "offene Fragen"
+      - "Stand der Forschung"
+    output_contract: "Executive Summary, research question, facts with evidence status, assumptions, hypotheses, open questions, research fields, methodology, risks, source plan, next steps."
+    usability_level: "high"
+    use_when:
+      - "User asks for scientific or research-oriented overview."
+    do_not_use_when:
+      - "User asks for public post or direct implementation prompt."
+    quality_gate:
+      - "Unsourced factual claims marked as [FAKT – QUELLE ERFORDERLICH]."
+
+  - skill_id: "SKILL-0005"
+    title: "SOP Builder"
+    status: "active"
+    maturity: "tested_partial"
+    linked_artifacts:
+      - "KOS-0024"
+      - "PROOF-20260519-005"
+    purpose: "Generate operational SOPs with scope, roles, process, decision points, escalation, documentation, quality, governance, and checklist."
+    trigger_signals:
+      - "SOP"
+      - "Arbeitsanweisung"
+      - "Prozessanweisung"
+      - "Verfahrensanweisung"
+      - "Standardprozess"
+    output_contract: "Direct SOP document with operational checklist."
+    usability_level: "high"
+    use_when:
+      - "User requests an operational procedure."
+    do_not_use_when:
+      - "User asks for business case or executive briefing."
+    quality_gate:
+      - "No company-specific thresholds invented."
+      - "Escalation matrix included if requested."
+
+  - skill_id: "SKILL-0006"
+    title: "Professional Profile Builder"
+    status: "active"
+    maturity: "tested_partial"
+    linked_artifacts:
+      - "KOS-0025"
+      - "PROOF-20260519-008"
+    purpose: "Generate truthful recruiter- or CV-ready professional positioning text."
+    trigger_signals:
+      - "Bewerbungsprofil"
+      - "Kurzprofil"
+      - "Profiltext"
+      - "Lebenslaufprofil"
+      - "Recruiter-Profil"
+      - "Bewerbungstext"
+    output_contract: "Short profile, competency focus, positioning, truth-boundary, optional CV/LinkedIn variants."
+    usability_level: "high"
+    use_when:
+      - "User asks for career positioning or application profile."
+    do_not_use_when:
+      - "User asks for generic management dossier."
+    quality_gate:
+      - "No false SAP hands-on claim."
+      - "No invented credentials, titles, metrics, or tool expertise."
+
+  - skill_id: "SKILL-0007"
+    title: "Decision Matrix Builder"
+    status: "active"
+    maturity: "tested_partial"
+    linked_artifacts:
+      - "KOS-0027"
+      - "PROOF-20260519-009"
+    purpose: "Generate operational decision matrices with criteria, decisions, escalation, documentation, examples, and governance."
+    trigger_signals:
+      - "Entscheidungsmatrix"
+      - "Entscheidungstabelle"
+      - "Entscheidungslogik"
+      - "Bewertungsmatrix"
+      - "Annahmematrix"
+    output_contract: "Matrix-first output with decision criteria and actions."
+    usability_level: "high"
+    use_when:
+      - "User asks for decision support, acceptance matrix, or operational evaluation logic."
+    do_not_use_when:
+      - "User asks for long-form portfolio/dossier."
+    quality_gate:
+      - "Actual matrix is primary output."
+      - "Company-specific thresholds not invented."
+
+  - skill_id: "SKILL-0008"
+    title: "Public-Safe Rewrite"
+    status: "active"
+    maturity: "governance_defined"
+    linked_artifacts:
+      - "KOS-GOV-0006"
+      - "KOS-0019"
+    purpose: "Convert internal Operator Fischer / GosseOS / KnowledgeOS language into credible external product or public copy."
+    trigger_signals:
+      - "public"
+      - "Website"
+      - "LinkedIn"
+      - "Portfolio"
+      - "README"
+      - "Produkttext"
+    output_contract: "Public-facing copy with bounded claims and simplified terminology."
+    usability_level: "medium_high"
+    use_when:
+      - "Internal architecture content must be exposed externally."
+    do_not_use_when:
+      - "Private architecture work only."
+    quality_gate:
+      - "No unbounded automation or unsupported compliance claims."
+
+  - skill_id: "SKILL-0009"
+    title: "Proof-of-Work Documentation"
+    status: "active"
+    maturity: "tested"
+    linked_artifacts:
+      - "PROOF-20260519-001"
+      - "PROOF-20260519-002"
+      - "PROOF-20260519-003"
+      - "PROOF-20260519-004"
+      - "PROOF-20260519-005"
+      - "PROOF-20260519-006"
+      - "PROOF-20260519-007"
+      - "PROOF-20260519-008"
+      - "PROOF-20260519-009"
+    purpose: "Document runtime outputs, evaluate quality, identify gaps, and derive improvement rules."
+    trigger_signals:
+      - "Proof-of-Work"
+      - "Runtime-Test"
+      - "Bewertung"
+      - "Testergebnis"
+    output_contract: "Proof report with input, observed output, evaluation, gap, score, and next action."
+    usability_level: "high"
+    use_when:
+      - "Testing Prompterator or other Operator Fischer tools."
+    do_not_use_when:
+      - "Fast one-off response with no reuse value."
+    quality_gate:
+      - "Concrete score and actionable improvement required."
+
+  - skill_id: "SKILL-0010"
+    title: "Release and Regression Control"
+    status: "active"
+    maturity: "implemented_once"
+    linked_artifacts:
+      - "KOS-0026"
+      - "RELEASE-20260519-002"
+    purpose: "Bundle tested improvements into release batches with regression tests and deployment gates."
+    trigger_signals:
+      - "Batch"
+      - "Release"
+      - "Regressionstest"
+      - "Deployment"
+      - "Fix umsetzen"
+    output_contract: "Release record, regression test set, implementation status, next deployment gate."
+    usability_level: "high"
+    use_when:
+      - "Multiple rules or fixes must be implemented in one controlled batch."
+    do_not_use_when:
+      - "Single untested idea without evidence."
+    quality_gate:
+      - "Regression tests defined before canonical release."
+
+open_skill_tasks:
+  - task_id: "SKILL-TASK-0001"
+    title: "Add Skill Registry to artifact registry."
+    priority: "medium"
+  - task_id: "SKILL-TASK-0002"
+    title: "Create skill-to-builder routing map for Prompterator runtime."
+    priority: "high"
+  - task_id: "SKILL-TASK-0003"
+    title: "Document deployment skill for checkdomain / mobile fallback."
+    priority: "medium"
+  - task_id: "SKILL-TASK-0004"
+    title: "Run regression tests after live deployment."
+    priority: "high"
+
+change_log:
+  - date: "2026-05-19"
+    version: "v1.0"
+    change: "Initial KnowledgeOS skill registry created from Prompterator testing, routing rules, governance, proof-of-work, and release workflow."
+    owner: "Operator Fischer"
