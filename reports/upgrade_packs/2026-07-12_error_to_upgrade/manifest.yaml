@@ -1,0 +1,34 @@
+upgrade_pack_id: KOS-UPGRADE-20260712-ETU-001
+title: Error-to-Upgrade Learning Loop v1.0
+date: '2026-07-12'
+owner: Operator Fischer
+status: active_checked
+source_incident: ETU-INC-20260712-001
+artifact_id: KOS-0019
+purpose: Convert the Dimitrojaner/RWOM execution failure into a reusable runtime guard, regression suite, and KnowledgeOS artifact.
+files:
+- governance/ERROR_TO_UPGRADE_PROTOCOL_v1.0.md
+- registry/artifact_entries/KOS-0019.yaml
+- tests/error_to_upgrade_regression_v1.0.yaml
+- reports/upgrade_packs/2026-07-12_error_to_upgrade/incident_dimitrojaner_rwom.yaml
+- reports/upgrade_packs/2026-07-12_error_to_upgrade/manifest.yaml
+- reports/verification_records/KOS-0019_2026-07-12.yaml
+- reports/release_records/KOS-0019_2026-07-12.yaml
+activation:
+  session_level: active immediately
+  knowledgeos_level: artifact and registry entry committed
+  gosseos_level: runtime gate committed
+  canonical_status: requires explicit owner promotion under release policy
+quality_gates:
+  schema: pass
+  source_traceability: pass
+  terminology: pass
+  drift: medium_controlled
+  governance: pass
+  regression_spec: pass
+  human_owner_boundary: pass
+known_limits:
+- This pack does not change hidden platform system instructions or model weights.
+- Persistent cross-chat effect requires loading the artifact or implementing the runtime gate.
+- Raw reference images remain in private storage and are not committed.
+next_release_decision: Owner may promote KOS-0019 from active/checked to canonical/verified after live regression use.
