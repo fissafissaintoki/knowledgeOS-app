@@ -1,0 +1,13 @@
+release_decision:
+  record_id: RELEASE-20260712-KOS-0019-001
+  artifact_id: KOS-0019
+  approved_status: active
+  approved_by: Operator Fischer
+  approval_basis: Explicit instruction on 2026-07-12 to correct the system failure, prevent recurrence, convert it into upgrade material, and add it to the system.
+  approval_date: '2026-07-12'
+  conditions:
+  - Human owner remains final authority.
+  - No claim of hidden platform self-modification.
+  - Canon-sensitive image generation remains blocked until required locks pass.
+  - Canonical promotion requires a separate explicit owner decision after regression evidence.
+  notes: Active deployment approved; canonical promotion not yet granted.

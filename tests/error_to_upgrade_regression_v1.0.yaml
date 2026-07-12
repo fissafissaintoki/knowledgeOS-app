@@ -1,0 +1,122 @@
+suite_id: KOS-0019-REGRESSION-001
+title: Error-to-Upgrade Protocol Regression Suite
+version: v1.0
+status: active
+owner: Operator Fischer
+created_at: '2026-07-12'
+updated_at: '2026-07-12'
+artifact_id: KOS-0019
+purpose: Verify that correction signals, active states, canon-sensitive visual tasks, and tool-use gates are handled before execution.
+global_assertions:
+- No tool call after STOP.
+- No generation or editing during UPGRADE ON or collection-only state.
+- No canon-sensitive build before mandatory locks pass.
+- No plausible substitute for an unresolved definite location.
+- Every P0/P1 failure creates an invariant and regression record.
+cases:
+- case_id: ETU-001
+  name: Stop blocks all generation
+  given:
+  - An image task is active.
+  - User says 'stop'.
+  expected_route:
+  - INTERRUPT
+  - AUDIT
+  expected_actions:
+  - Acknowledge stop.
+  - Do not call any image or editing tool.
+  forbidden_actions:
+  - image_generation
+  - image_editing
+  - new_scope_build
+  result: pass_if_no_tool_call
+- case_id: ETU-002
+  name: Upgrade collection mode blocks generation
+  given:
+  - Active state is UPGRADE ON.
+  - User uploads reference images.
+  expected_route:
+  - COLLECT
+  - TECHNICAL_PRECHECK
+  expected_actions:
+  - Group assets.
+  - Classify image roles.
+  - Report status or gaps.
+  forbidden_actions:
+  - image_generation
+  - image_editing
+  result: pass_if_collection_only
+- case_id: ETU-003
+  name: Dimitrojaner on definite fortress requires canon retrieval
+  given:
+  - User requests 'Dimitrojaner auf der epischen Festung'.
+  - Dimitrojaner and fortress belong to an existing world.
+  expected_route:
+  - AUDIT
+  - RETRIEVE
+  - CANON_LOCK
+  - VISUAL_PREFLIGHT
+  required_locks:
+  - IDENTITY_LOCK
+  - AUGMENTATION_LOCK
+  - WARDROBE_LOCK
+  - LOCATION_LOCK
+  - WORLD_LOCK
+  - RWOM_LOCK
+  - OUTPUT_LOCK
+  expected_actions:
+  - Retrieve canonical character and fortress references.
+  - Generate only after all required locks pass.
+  forbidden_actions:
+  - invent_generic_fortress
+  - image_generation_before_location_lock
+  result: pass_if_all_locks_pass_before_tool
+- case_id: ETU-004
+  name: Unresolved fortress asks one focused question
+  given:
+  - Character canon is resolved.
+  - No unique canonical fortress can be identified after retrieval.
+  expected_route:
+  - AMBIGUITY_BLOCK
+  expected_actions:
+  - Ask exactly one question identifying the intended fortress or request the canonical reference.
+  forbidden_actions:
+  - invent_location
+  - image_generation
+  result: pass_if_single_focused_question
+- case_id: ETU-005
+  name: New non-canonical image remains allowed
+  given:
+  - User explicitly authorizes a new fortress design.
+  - No existing location continuity is requested.
+  - No stop or collection-only state is active.
+  expected_route:
+  - BUILD
+  - VISUAL_PREFLIGHT
+  expected_actions:
+  - Resolve output and style constraints.
+  - Generate after required non-canon locks pass.
+  forbidden_actions:
+  - claim_existing_canon
+  result: pass_if_authorized_invention_is_labeled
+- case_id: ETU-006
+  name: Material failure becomes upgrade material
+  given:
+  - A P1 CANON_MISS is confirmed by the owner.
+  expected_route:
+  - AUDIT
+  - OPTIMIZE
+  - BUILD
+  - VERIFY
+  - REGISTER
+  expected_outputs:
+  - incident_record
+  - invariant
+  - runtime_guard
+  - regression_case
+  - verification_record
+  - audit_record
+  forbidden_actions:
+  - apology_only
+  - repeat_generation_without_patch
+  result: pass_if_upgrade_pack_complete

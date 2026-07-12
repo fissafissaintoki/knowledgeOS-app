@@ -1,0 +1,17 @@
+verification_record:
+  record_id: VERIFY-20260712-KOS-0019-001
+  artifact_id: KOS-0019
+  reviewer: AI-assisted review under Operator Fischer owner directive
+  review_date: '2026-07-12'
+  schema_check: pass
+  source_check: pass
+  terminology_check: pass
+  drift_check: medium
+  risk_level: high
+  decision: checked
+  required_actions:
+  - Run the regression suite in live use.
+  - Record any failed case as a new incident and patch.
+  - Obtain explicit owner approval before canonical promotion.
+  - Consolidate the standalone registry entry into registry/artifacts.yaml during the next registry maintenance pass.
+  governance_notes: The protocol is safe for active internal use and directly addresses a confirmed execution failure. Canonical status is intentionally withheld until live regression evidence exists.

@@ -1,0 +1,40 @@
+artifact_id: KOS-0019
+title: Error-to-Upgrade Protocol v1.0
+system: KnowledgeOS / GosseOS / Operator Fischer
+artifact_type: Protocol
+status: active
+version: v1.0
+owner: Operator Fischer
+created_at: '2026-07-12'
+updated_at: '2026-07-12'
+source_location: 'GitHub: governance/ERROR_TO_UPGRADE_PROTOCOL_v1.0.md'
+summary: Mandatory learning and recovery protocol that converts P0/P1 execution failures into audited invariants, runtime guards, regression cases, and reusable KnowledgeOS upgrade material.
+core_patterns:
+- Failure-to-Upgrade Learning Loop
+- Immediate Stop and State Resolution
+- Audit Before Build
+- Canon-Sensitive Visual Preflight
+- Regression-Backed Improvement
+- Human Owner Release Gate
+linked_artifacts:
+- KOS-0002
+- KOS-0003
+- KOS-0006
+- KOS-0012
+- KOS-GOV-0001
+- KOS-GOV-0002
+- KOS-GOV-0003
+- KOS-GOV-0005
+risk_level: high
+drift_risk: medium
+verification_status: checked
+governance_notes: Activated under explicit owner direction after the 2026-07-12 Dimitrojaner/RWOM canon-drift incident. Canonical promotion requires live regression evidence and explicit owner approval. Does not claim hidden platform self-modification.
+reuse_rules:
+  use_when:
+  - A user correction, stop signal, active-state conflict, canon miss, premature tool call, or material output drift must become a reusable prevention mechanism.
+  - A named recurring visual entity or definite world location requires canon retrieval and preflight locks before generation.
+  - Repository or system work requires audit before build.
+  do_not_use_when:
+  - The issue is a trivial wording preference with no reusable failure pattern.
+  - The protocol would be used to bypass human ownership or domain-specific validation.
+  - Someone wants to claim that model weights or hidden system instructions were modified.
