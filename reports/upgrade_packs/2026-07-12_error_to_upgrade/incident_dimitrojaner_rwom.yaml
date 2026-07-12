@@ -1,0 +1,36 @@
+incident_id: ETU-INC-20260712-001
+artifact_id: KOS-0019
+title: Dimitrojaner RWOM Fortress Canon Drift
+date: '2026-07-12'
+severity: P1
+owner: Operator Fischer
+source_context: Chat correction after image generation
+active_systems:
+- OPS Core
+- KnowledgeOS
+- GosseOS
+- RWOM Upgrade Port
+- Out of Control Studio
+trigger: Zeige mir den Dimitrojaner auf der epischen Festung.
+expected_behavior:
+- Classify as canon-sensitive visual continuation.
+- Retrieve canonical Dimitrojaner identity and exact fortress.
+- Resolve all required visual locks.
+- Block image generation while LOCATION_LOCK is unresolved.
+actual_behavior:
+- Direct image generation was called.
+- A generic dystopian fortress was invented.
+- The result drifted from the existing world and was not a controlled reusable asset.
+failure_codes:
+- ROUTING_BYPASS
+- CANON_MISS
+- UNSUPPORTED_ASSUMPTION
+- TOOL_PREMATURE
+- QUALITY_GATE_SKIP
+- OUTPUT_DRIFT
+root_cause: Raw visual request was treated as free generation instead of a canon-sensitive continuation under the existing RWOM upgrade state.
+invariant: WHEN a recurring named entity is placed in a definite existing world location, REQUIRE identity, location, world, RWOM, and output locks; BLOCK image generation until all required locks pass.
+runtime_patch: Activate ERROR_TO_UPGRADE_GATE and CANON_SENSITIVE_VISUAL_PREFLIGHT before any image tool call.
+privacy: No raw private image is stored in GitHub. The failed image is retained only as a negative-reference description.
+verification_target: tests/error_to_upgrade_regression_v1.0.yaml
+status: converted_to_upgrade_material
